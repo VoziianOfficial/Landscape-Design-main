@@ -48,6 +48,7 @@ export function initServicePage(config) {
   renderServiceStages(service);
   renderServiceDeliverables(service);
   renderServiceFaq(service);
+  renderServiceSplitShowcase(service);
 
   /*
    * Новая универсальная секция.
@@ -1045,4 +1046,183 @@ function getRelatedShowcaseIcon(slug) {
       <path d="M15 24h18"/>
     </svg>
   `;
+}
+
+/* =========================================================
+   SERVICE SPLIT SHOWCASE
+========================================================= */
+
+function renderServiceSplitShowcase(service) {
+  const section = document.querySelector(
+    "[data-service-split-showcase]"
+  );
+
+  if (!section || !service) {
+    return;
+  }
+
+  const shortTitle =
+    service.shortTitle ||
+    service.title ||
+    "Landscape Design";
+
+  setServiceSplitText(
+    section,
+    "[data-service-split-title]",
+    `${shortTitle} Planning With More Clarity.`
+  );
+
+  setServiceSplitText(
+    section,
+    "[data-service-split-focus-title]",
+    `Key Questions for ${shortTitle}.`
+  );
+
+  setServiceSplitText(
+    section,
+    "[data-service-split-overview]",
+    service.overview || service.summary
+  );
+
+  setServiceSplitText(
+    section,
+    "[data-service-split-summary]",
+    service.summary ||
+    "Explore the practical and visual questions connected to this landscape planning direction."
+  );
+
+  renderServiceSplitImage(
+    section.querySelector(
+      "[data-service-split-primary-image]"
+    ),
+    service.image,
+    service.imageAlt || service.title
+  );
+
+  /*
+   * Можно добавить отдельное secondaryImage
+   * в config каждого сервиса.
+   *
+   * Пока используется универсальное фото
+   * процесса планирования.
+   */
+  renderServiceSplitImage(
+    section.querySelector(
+      "[data-service-split-secondary-image]"
+    ),
+    service.secondaryImage ||
+    "assets/images/home/planning-discussion.webp",
+    service.secondaryImageAlt ||
+    `Planning discussion related to ${service.title}`
+  );
+
+  renderServiceSplitFocusList(
+    section,
+    service.scope
+  );
+
+  section.hidden = false;
+
+  requestAnimationFrame(() => {
+    window.AOS?.refreshHard?.();
+  });
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+function setServiceSplitText(
+  section,
+  selector,
+  value
+) {
+  const element = section.querySelector(selector);
+
+  if (
+    element &&
+    typeof value === "string" &&
+    value.trim()
+  ) {
+    element.textContent = value.trim();
+  }
+}
+
+
+/* =========================================================
+   IMAGES
+========================================================= */
+
+function renderServiceSplitImage(
+  image,
+  src,
+  alt
+) {
+  if (!image || !src) {
+    return;
+  }
+
+  image.src = src;
+  image.alt = alt || "";
+}
+
+
+/* =========================================================
+   FOCUS LIST
+========================================================= */
+
+function renderServiceSplitFocusList(
+  section,
+  scopeItems
+) {
+  const list = section.querySelector(
+    "[data-service-split-focus-list]"
+  );
+
+  if (!list) {
+    return;
+  }
+
+  const items = Array.isArray(scopeItems)
+    ? scopeItems.slice(0, 4)
+    : [];
+
+  list.replaceChildren(
+    ...items.map((text) => {
+      const item = document.createElement("li");
+
+      const icon = document.createElement("span");
+
+      icon.className =
+        "service-split-showcase__focus-icon";
+
+      icon.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+      icon.innerHTML = `
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M20 4c-8 0-14 4-14 11"></path>
+          <path d="M20 4c0 8-4 14-11 14"></path>
+          <path d="M6 20c2-5 6-9 12-12"></path>
+        </svg>
+      `;
+
+      const label = document.createElement("span");
+
+      label.textContent = text;
+
+      item.append(icon, label);
+
+      return item;
+    })
+  );
 }
