@@ -410,6 +410,36 @@ body[data-page="service-detail"] .v-accordion__panel>div {
     padding: 0 clamp(1.15rem, 2.8vw, 1.65rem) clamp(1.25rem, 2.8vw, 1.75rem) calc(clamp(1rem, 2.5vw, 1.35rem) + 58px)
 }
 
+body[data-page="service-detail"] .v-accordion__panel {
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: grid-template-rows 520ms cubic-bezier(.22, .72, .18, 1), opacity 260ms ease, transform 420ms cubic-bezier(.22, .72, .18, 1), visibility 0s linear 520ms
+}
+
+body[data-page="service-detail"] .v-accordion__panel>div {
+    min-height: 0;
+    overflow: hidden;
+    transform: translateY(-8px);
+    transition: transform 420ms cubic-bezier(.22, .72, .18, 1)
+}
+
+body[data-page="service-detail"] .v-accordion__button[aria-expanded=true]+.v-accordion__panel,
+body[data-page="service-detail"] .v-accordion__item.is-open .v-accordion__panel,
+body[data-page="service-detail"] .v-accordion__item:has(.v-accordion__button[aria-expanded=true]) .v-accordion__panel,
+body[data-page="service-detail"] .v-accordion__panel[aria-hidden=false] {
+    opacity: 1;
+    transform: none;
+    transition: grid-template-rows 520ms cubic-bezier(.22, .72, .18, 1), opacity 260ms ease, transform 420ms cubic-bezier(.22, .72, .18, 1), visibility 0s
+}
+
+body[data-page="service-detail"] .v-accordion__button[aria-expanded=true]+.v-accordion__panel>div,
+body[data-page="service-detail"] .v-accordion__item.is-open .v-accordion__panel>div,
+body[data-page="service-detail"] .v-accordion__item:has(.v-accordion__button[aria-expanded=true]) .v-accordion__panel>div,
+body[data-page="service-detail"] .v-accordion__panel[aria-hidden=false]>div {
+    transform: none
+}
+
 body[data-page="service-detail"] .v-accordion__panel p {
     max-width: 68ch;
     margin: 0;
