@@ -213,8 +213,8 @@ body[data-page="service-detail"] .service-hero .internal-hero__content>div:nth-c
 
 .service-detail-stages {
     display: grid;
-    grid-template-columns: .65fr 1.35fr;
-    gap: clamp(3rem, 8vw, 8rem);
+    grid-template-columns: minmax(300px, .78fr) minmax(0, 1.22fr);
+    gap: clamp(2.5rem, 6vw, 6.5rem);
     align-items: start
 }
 
@@ -298,11 +298,13 @@ body[data-service-slug="3d-landscape-visualization"] .service-stage-parallax {
 }
 
 .service-stage-parallax .service-detail-stages__sticky h2 {
-    color: #fff
+    color: #fff;
+    font-size: clamp(2rem, 3.2vw, 3.65rem);
+    line-height: 1.02
 }
 
 .service-stage-parallax .service-stage {
-    min-height: clamp(180px, 18vw, 230px);
+    min-height: clamp(180px, 18vw, 30px);
     margin-bottom: .8rem;
     padding: clamp(1.25rem, 2.5vw, 1.8rem);
     border: 1px solid rgba(244, 246, 242, .14);
