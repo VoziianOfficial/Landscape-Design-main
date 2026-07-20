@@ -406,6 +406,23 @@ body[data-service-slug="3d-landscape-visualization"] .service-stage-parallax {
     background: linear-gradient(135deg, var(--color-forest), var(--color-forest-deep))
 }
 
+body[data-page="service-detail"] .v-accordion__panel>div {
+    padding: 0 clamp(1.15rem, 2.8vw, 1.65rem) clamp(1.25rem, 2.8vw, 1.75rem) calc(clamp(1rem, 2.5vw, 1.35rem) + 58px)
+}
+
+body[data-page="service-detail"] .v-accordion__panel p {
+    max-width: 68ch;
+    margin: 0;
+    padding: 0;
+    line-height: 1.75
+}
+
+@media(max-width:767px) {
+    body[data-page="service-detail"] .v-accordion__panel>div {
+        padding: 0 clamp(1rem, 5vw, 1.25rem) clamp(1.15rem, 5vw, 1.45rem)
+    }
+}
+
 @media(max-width:900px) {
 
     .service-detail-overview,

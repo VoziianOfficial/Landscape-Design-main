@@ -931,6 +931,10 @@
         justify-content: center
     }
 
+    .home-explorer__grid .home-explorer__button span[aria-hidden="true"] {
+        display: none
+    }
+
     .home-intro__media {
         order: 2
     }
