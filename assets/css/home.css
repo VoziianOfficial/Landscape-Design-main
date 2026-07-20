@@ -1,5 +1,5 @@
 .home-hero {
-    min-height: clamp(720px, 100svh, 980px);
+    min-height: clamp(600px, 82svh, 760px);
     position: relative;
     background: var(--color-hero);
     color: var(--color-light-text);
@@ -37,7 +37,7 @@
 .home-hero__content {
     position: relative;
     z-index: 2;
-    padding: calc(var(--header-height) + 6rem) 0 clamp(4rem, 8vw, 7rem);
+    padding: calc(var(--header-height) + 3.25rem) 0 clamp(3rem, 5vw, 4.5rem);
     display: grid;
     grid-template-columns: minmax(0, 1fr) 270px;
     gap: 3rem;
@@ -53,7 +53,7 @@
 }
 
 .home-hero__lede {
-    max-width: 64ch;
+    max-width: 67ch;
     margin: 1.75rem 0;
     color: rgba(244, 246, 242, .8)
 }
@@ -938,11 +938,11 @@
 
 @media(max-width:767px) {
     .home-hero {
-        min-height: 760px
+        min-height: clamp(560px, 78svh, 660px)
     }
 
     .home-hero__content {
-        padding-top: calc(var(--header-height) + 5rem)
+        padding-top: calc(var(--header-height) + 3.25rem)
     }
 
     .home-hero h1 {
