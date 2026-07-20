@@ -1,5 +1,6 @@
 export function initAbout(config) {
   initAboutFeedback(config);
+  initAboutServiceStories(config);
 }
 
 function initAboutFeedback(config) {
@@ -357,6 +358,223 @@ function setText(element, value) {
   ) {
     element.textContent = value;
   }
+}
+
+function initAboutServiceStories(config) {
+  const container = document.querySelector(
+    "[data-about-service-stories]"
+  );
+
+  if (!container) {
+    return;
+  }
+
+  if (container.dataset.initialized === "true") {
+    return;
+  }
+
+  const preferredSlugs = [
+    "residential-landscape-design",
+    "commercial-landscape-design",
+    "3d-landscape-visualization"
+  ];
+
+  const services = Array.isArray(config?.services)
+    ? preferredSlugs
+      .map((slug) => {
+        return config.services.find(
+          (service) => service.slug === slug
+        );
+      })
+      .filter(Boolean)
+    : [];
+
+  if (services.length === 0) {
+    container.hidden = true;
+    return;
+  }
+
+  const categories = {
+    "residential-landscape-design": {
+      label: "Residential",
+      focus: "Whole-property planning"
+    },
+
+    "commercial-landscape-design": {
+      label: "Commercial",
+      focus: "Shared outdoor environments"
+    },
+
+    "3d-landscape-visualization": {
+      label: "Visualization",
+      focus: "2D & 3D design studies"
+    }
+  };
+
+  container.replaceChildren(
+    ...services.map((service, index) => {
+      const meta = categories[service.slug] || {
+        label: "Landscape Design",
+        focus: "Planning direction"
+      };
+
+      return createAboutServiceStory(
+        service,
+        meta,
+        index
+      );
+    })
+  );
+
+  container.dataset.initialized = "true";
+  container.hidden = false;
+
+  requestAnimationFrame(() => {
+    if (
+      window.AOS &&
+      typeof window.AOS.refreshHard === "function"
+    ) {
+      window.AOS.refreshHard();
+    }
+  });
+}
+
+function createAboutServiceStory(
+  service,
+  meta,
+  index
+) {
+  const article = document.createElement("article");
+
+  article.className =
+    "about-service-story";
+
+  article.setAttribute(
+    "data-aos",
+    "fade-up"
+  );
+
+  article.setAttribute(
+    "data-aos-delay",
+    String(index * 90)
+  );
+
+  const link = document.createElement("a");
+
+  link.className =
+    "about-service-story__link";
+
+  link.href = service.url;
+
+  link.setAttribute(
+    "aria-label",
+    `Explore ${service.title}`
+  );
+
+  const media = document.createElement("figure");
+  media.className = "about-service-story__media";
+
+  const image = document.createElement("img");
+
+  image.src = service.image;
+  image.alt = service.imageAlt || service.title;
+  image.width = 900;
+  image.height = 620;
+  image.loading = "lazy";
+  image.decoding = "async";
+
+  media.append(image);
+
+  const body = document.createElement("div");
+  body.className = "about-service-story__body";
+
+  const metadata = document.createElement("div");
+  metadata.className = "about-service-story__meta";
+
+  const category = document.createElement("span");
+  category.className =
+    "about-service-story__category";
+
+  category.innerHTML = `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M4 19V7l8-4 8 4v12"/>
+      <path d="M8 21v-6h8v6"/>
+      <path d="M3 21h18"/>
+    </svg>
+  `;
+
+  const categoryText = document.createElement("span");
+  categoryText.textContent = meta.label;
+
+  category.append(categoryText);
+
+  const focus = document.createElement("span");
+  focus.className =
+    "about-service-story__focus";
+
+  focus.innerHTML = `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M4 5h6l2 2h8v12H4V5Z"/>
+    </svg>
+  `;
+
+  const focusText = document.createElement("span");
+  focusText.textContent = meta.focus;
+
+  focus.append(focusText);
+  metadata.append(category, focus);
+
+  const title = document.createElement("h3");
+  title.textContent = service.title;
+
+  const summary = document.createElement("p");
+  summary.textContent = service.summary;
+
+  const action = document.createElement("span");
+  action.className =
+    "about-service-story__action";
+
+  action.innerHTML = `
+    <span>View Planning Details</span>
+
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M5 12h14"/>
+      <path d="m13 6 6 6-6 6"/>
+    </svg>
+  `;
+
+  body.append(
+    metadata,
+    title,
+    summary,
+    action
+  );
+
+  link.append(media, body);
+  article.append(link);
+
+  return article;
 }
 
 function getQuoteIconMarkup() {
