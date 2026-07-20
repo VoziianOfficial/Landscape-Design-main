@@ -2007,3 +2007,222 @@
         transition: none;
     }
 }
+
+/* =========================================================
+   HOME BENEFITS
+========================================================= */
+
+.home-benefits {
+    position: relative;
+    background: #f2f0eb;
+    overflow: clip;
+}
+
+.home-benefits__head {
+    width: min(960px, 100%);
+    margin: 0 auto clamp(3rem, 5vw, 5rem);
+    text-align: center;
+}
+
+.home-benefits__head .v-eyebrow {
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: var(--color-forest);
+}
+
+.home-benefits__head h2 {
+    width: 100%;
+    max-width: none;
+    margin-inline: auto;
+    font-size: clamp(2.7rem, 4.6vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.05em;
+    text-wrap: balance;
+}
+
+.home-benefits__head>p:last-child {
+    width: min(720px, 100%);
+    margin: 1.4rem auto 0;
+    color: var(--color-text-muted);
+    font-size: clamp(1rem, 1.1vw, 1.1rem);
+    line-height: 1.75;
+}
+
+.home-benefits__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1.25rem, 2.2vw, 2.5rem);
+}
+
+.home-benefit-card {
+    position: relative;
+    min-height: 310px;
+    padding: clamp(2rem, 3vw, 2.8rem);
+    border: 1px solid rgba(27, 41, 26, 0.07);
+    border-radius: clamp(1.4rem, 2.2vw, 2rem);
+    background: var(--color-surface);
+    box-shadow: 0 20px 50px rgba(16, 32, 21, 0.035);
+    transition:
+        transform 280ms ease,
+        border-color 280ms ease,
+        box-shadow 280ms ease,
+        background-color 280ms ease;
+}
+
+.home-benefit-card::after {
+    content: "";
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    width: 32px;
+    height: 2px;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 280ms ease;
+}
+
+.home-benefit-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(118, 193, 116, 0.42);
+    box-shadow: 0 28px 70px rgba(16, 32, 21, 0.1);
+}
+
+.home-benefit-card:hover::after {
+    transform: scaleX(1);
+}
+
+.home-benefit-card__icon {
+    display: grid;
+    place-items: center;
+    width: 74px;
+    height: 74px;
+    margin-bottom: 1.6rem;
+    border: 1px solid rgba(27, 41, 26, 0.06);
+    border-radius: 50%;
+    background: #f8faf7;
+    color: var(--color-forest);
+    box-shadow: 0 12px 32px rgba(16, 32, 21, 0.06);
+    transition:
+        color 260ms ease,
+        background-color 260ms ease,
+        transform 260ms ease;
+}
+
+.home-benefit-card__icon svg {
+    width: 33px;
+    height: 33px;
+    stroke-width: 1.7;
+}
+
+.home-benefit-card--featured .home-benefit-card__icon {
+    border-color: var(--color-logo);
+    background: var(--color-logo);
+    color: var(--color-forest-deep);
+}
+
+.home-benefit-card:hover .home-benefit-card__icon {
+    color: #ffffff;
+    background: var(--color-forest);
+    transform: rotate(-4deg) scale(1.04);
+}
+
+.home-benefit-card h3 {
+    max-width: 340px;
+    margin: 0;
+    color: var(--color-forest-deep);
+    font-size: clamp(1.35rem, 1.75vw, 1.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+}
+
+.home-benefit-card p {
+    max-width: 42ch;
+    margin-top: 1rem;
+    color: var(--color-text-muted);
+    font-size: clamp(0.94rem, 1vw, 1.02rem);
+    line-height: 1.72;
+}
+
+
+/* =========================================================
+   HOME BENEFITS — TABLET
+========================================================= */
+
+@media (max-width: 1023px) {
+    .home-benefits__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .home-benefit-card {
+        min-height: 290px;
+    }
+}
+
+
+/* =========================================================
+   HOME BENEFITS — MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+    .home-benefits__head {
+        margin-inline: 0;
+        text-align: left;
+    }
+
+    .home-benefits__head .v-eyebrow {
+        justify-content: flex-start;
+    }
+
+    .home-benefits__head h2 {
+        font-size: clamp(2.6rem, 12vw, 3.8rem);
+    }
+
+    .home-benefits__head>p:last-child {
+        margin-left: 0;
+    }
+
+    .home-benefits__grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .home-benefit-card {
+        min-height: 0;
+        padding: 1.6rem;
+        border-radius: 1.35rem;
+    }
+
+    .home-benefit-card__icon {
+        width: 62px;
+        height: 62px;
+        margin-bottom: 1.3rem;
+    }
+
+    .home-benefit-card__icon svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .home-benefit-card h3 {
+        font-size: 1.4rem;
+    }
+
+    .home-benefit-card::after {
+        right: 1.5rem;
+        bottom: 1.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .home-benefit-card,
+    .home-benefit-card__icon,
+    .home-benefit-card::after {
+        transition: none;
+    }
+
+    .home-benefit-card:hover {
+        transform: none;
+    }
+}
