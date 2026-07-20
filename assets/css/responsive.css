@@ -132,25 +132,14 @@ body[data-page="service-detail"] .service-split-showcase__shell {
 
 
 
-body[data-page="service-detail"]>[data-site-header] {
+body[data-page="service-detail"]>[data-site-header],
+body[data-page="service-detail"] .site-header {
     position: sticky !important;
     inset-block-start: 0 !important;
+    inset-inline: 0 !important;
     z-index: 5000 !important;
 
     display: block;
-    inline-size: 100%;
-    max-inline-size: 100%;
-
-    overflow: visible !important;
-    transform: none !important;
-    contain: none !important;
-}
-
-body[data-page="service-detail"] .site-header {
-    position: relative !important;
-
-    inset: auto !important;
-
     inline-size: 100% !important;
     max-inline-size: 100% !important;
 
@@ -244,9 +233,9 @@ body[data-page="service-detail"] .service-hero {
 
     inline-size: 100%;
     max-inline-size: 100%;
-    min-block-size: 430px;
+    min-block-size: clamp(340px, 35vw, 470px);
 
-    padding-block: clamp(3rem, 6vw, 5.5rem);
+    padding-block: clamp(2.8rem, 5.2vw, 4.8rem);
     padding-inline: 0;
 
     overflow: clip;
@@ -258,9 +247,9 @@ body[data-page="service-detail"] .service-hero .internal-hero__content {
 
     display: grid;
     grid-template-columns:
-        minmax(0, 1.15fr) minmax(0, 0.85fr);
+        minmax(0, 1.08fr) minmax(0, 0.92fr);
 
-    align-items: end;
+    align-items: center;
 
     inline-size: 100% !important;
     max-inline-size: var(--container-wide, 1440px) !important;
@@ -269,7 +258,7 @@ body[data-page="service-detail"] .service-hero .internal-hero__content {
     margin-inline: auto !important;
     padding-inline: var(--page-gutter, 1.25rem) !important;
 
-    gap: clamp(2rem, 5vw, 6rem);
+    gap: clamp(1.5rem, 4vw, 4.75rem);
 }
 
 body[data-page="service-detail"] .service-hero .internal-hero__content>* {
@@ -280,12 +269,12 @@ body[data-page="service-detail"] .service-hero .internal-hero__content>* {
 
 body[data-page="service-detail"] .service-hero h1 {
     inline-size: 100% !important;
-    max-inline-size: 15ch !important;
+    max-inline-size: min(100%, 16ch) !important;
     margin: 0;
 
-    font-size: clamp(3rem, 6vw, 5.5rem);
-    line-height: 0.98;
-    letter-spacing: -0.05em;
+    font-size: clamp(3rem, 5.4vw, 5.15rem);
+    line-height: 1;
+    letter-spacing: -0.035em;
 
     white-space: normal;
     overflow-wrap: anywhere;
@@ -367,6 +356,30 @@ body[data-page="service-detail"] .service-related-carousel__swiper {
 
 body[data-page="service-detail"] .service-related-carousel__swiper {
     min-inline-size: 0;
+    overflow: hidden !important;
+}
+
+body[data-page="service-detail"] .service-related-carousel .swiper-wrapper {
+    max-inline-size: 100%;
+}
+
+body[data-page="service-detail"] .service-related-carousel .swiper-slide {
+    max-inline-size: 100%;
+}
+
+body[data-page="service-detail"] .service-related-carousel,
+body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
+    overflow-x: clip !important;
+}
+
+body[data-page="service-detail"] .service-split-showcase [data-aos="fade-left"],
+body[data-page="service-detail"] .service-split-showcase [data-aos="fade-right"] {
+    transform: translate3d(0, 24px, 0) !important;
+}
+
+body[data-page="service-detail"] .service-split-showcase [data-aos="fade-left"].aos-animate,
+body[data-page="service-detail"] .service-split-showcase [data-aos="fade-right"].aos-animate {
+    transform: none !important;
 }
 
 
@@ -393,7 +406,7 @@ body[data-page="service-detail"] .service-related-carousel__swiper {
 
     body[data-page="service-detail"] .site-logo,
     body[data-page="service-detail"] .site-header__brand {
-        max-inline-size: calc(100vw - 88px);
+        max-inline-size: calc(100% - 88px);
         overflow: hidden;
     }
 
@@ -411,14 +424,25 @@ body[data-page="service-detail"] .service-related-carousel__swiper {
 
     body[data-page="service-detail"] .service-hero .internal-hero__content {
         grid-template-columns: minmax(0, 1fr) !important;
-        align-items: start;
+        align-items: center;
+        justify-items: center;
+        text-align: center;
         gap: 1.5rem;
     }
 
     body[data-page="service-detail"] .service-hero h1 {
         max-inline-size: 100% !important;
+        margin-inline: auto;
         font-size: clamp(2.4rem, 8vw, 3.9rem);
         line-height: 1;
+        text-align: center;
+    }
+
+    body[data-page="service-detail"] .service-hero [data-service-summary],
+    body[data-page="service-detail"] .service-hero .breadcrumb {
+        margin-inline: auto;
+        text-align: center;
+        justify-content: center;
     }
 
     body[data-page="service-detail"] :is(.service-detail-overview,

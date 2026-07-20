@@ -3,15 +3,13 @@
 
 
 body[data-page="service-detail"] .site-header {
-    position: fixed;
+    position: sticky;
     top: 0;
-    right: 0;
-    left: 0;
-    width: auto;
-    max-width: none;
-    overflow: hidden;
-    z-index: 120;
-    transform: translateZ(0)
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+    z-index: 5000;
+    transform: none
 }
 
 body[data-page="service-detail"] .site-header__inner {
@@ -20,7 +18,7 @@ body[data-page="service-detail"] .site-header__inner {
 }
 
 body[data-page="service-detail"] main {
-    padding-top: var(--header-height)
+    padding-top: 0
 }
 
 body[data-page="service-detail"] .service-hero {
@@ -85,13 +83,13 @@ body[data-page="service-detail"] .service-hero .internal-hero__content>div:nth-c
 @media(max-width:767px) {
     body[data-page="service-detail"] .site-header {
         right: auto;
-        width: 100vw;
-        max-width: 100vw
+        width: 100%;
+        max-width: 100%
     }
 
     body[data-page="service-detail"] .site-header__inner {
-        width: min(calc(100vw - 2 * var(--page-gutter)), var(--container-wide));
-        max-width: calc(100vw - 2 * var(--page-gutter))
+        width: min(calc(100% - 2 * var(--page-gutter)), var(--container-wide));
+        max-width: calc(100% - 2 * var(--page-gutter))
     }
 
     body[data-page="service-detail"] .service-hero {
@@ -304,7 +302,7 @@ body[data-service-slug="3d-landscape-visualization"] .service-stage-parallax {
 }
 
 .service-stage-parallax .service-stage {
-    min-height: clamp(180px, 18vw, 30px);
+    min-height: clamp(18px, 18vw, 30px);
     margin-bottom: .8rem;
     padding: clamp(1.25rem, 2.5vw, 1.8rem);
     border: 1px solid rgba(244, 246, 242, .14);
