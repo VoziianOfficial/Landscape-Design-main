@@ -1,0 +1,13 @@
+{
+  "name": "Verdeon",
+  "short_name": "Verdeon",
+  "description": "Thoughtful landscape planning for properties of every scale.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#303831",
+  "theme_color": "#303831",
+  "icons": [
+    { "src": "assets/icons/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "assets/icons/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

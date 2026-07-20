@@ -1,0 +1,3 @@
+export function initStickyStages(root=document){
+  root.querySelectorAll('[data-sticky-stage]').forEach(stage=>{const panels=[...stage.querySelectorAll('[data-stage-panel]')];const bar=stage.querySelector('[data-progress-bar]');const count=stage.querySelector('[data-progress-count]');if(!panels.length||!('IntersectionObserver'in window))return;const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(!entry.isIntersecting)return;const index=panels.indexOf(entry.target);stage.dataset.active=String(index);if(bar)bar.style.width=`${((index+1)/panels.length)*100}%`;if(count)count.textContent=String(index+1).padStart(2,'0')})},{rootMargin:'-35% 0px -50% 0px',threshold:.05});panels.forEach(panel=>observer.observe(panel))});
+}

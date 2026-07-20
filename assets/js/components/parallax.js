@@ -1,0 +1,3 @@
+export function initParallax(){
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;const touch=matchMedia('(pointer: coarse)').matches;if(reduced||touch||innerWidth<900)return;const layers=[...document.querySelectorAll('[data-parallax]')];if(!layers.length)return;let ticking=false;const update=()=>{layers.forEach(layer=>{const rect=layer.parentElement.getBoundingClientRect();const offset=Math.max(-1,Math.min(1,(innerHeight/2-(rect.top+rect.height/2))/innerHeight));layer.style.transform=`translate3d(0,${offset*28}px,0) scale(1.08)`});ticking=false};addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(update);ticking=true}},{passive:true});update();
+}

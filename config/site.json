@@ -1,0 +1,269 @@
+{
+  "brand": {
+    "name": "Verdeon",
+    "tagline": "Plan Better Outdoors.",
+    "supportingPhrase": "Thoughtful landscape planning for properties of every scale.",
+    "logoAlt": "Verdeon landscape planning",
+    "legalName": "Verdeon Design Network LLC"
+  },
+  "contact": {
+    "email": "support@verdeon.com",
+    "addressLine1": "1847 Cedar Grove Avenue, Suite 210",
+    "cityStateZip": "Portland, OR 97205",
+    "country": "United States"
+  },
+  "navigation": [
+    { "label": "Home", "url": "index.html" },
+    { "label": "About", "url": "about.html" },
+    { "label": "Services", "url": "all-services.html", "dropdown": true },
+    { "label": "Project Gallery", "url": "gallery.html" },
+    { "label": "Contact", "url": "contact.html" }
+  ],
+  "ctas": {
+    "consultation": "Request a Consultation",
+    "exploreServices": "Explore Design Services",
+    "viewDetails": "View Planning Details",
+    "gallery": "Browse Landscape Concepts",
+    "property": "Tell Us About Your Property",
+    "contact": "Contact Verdeon"
+  },
+  "footer": {
+    "description": "Verdeon helps property decision-makers understand landscape design possibilities, organize project priorities, and identify relevant independent professionals where available.",
+    "servicesHeading": "Design Options",
+    "companyHeading": "Verdeon",
+    "legalHeading": "Information",
+    "disclaimer": "Verdeon is an independent information and provider-matching platform. Verdeon does not directly perform landscape construction, installation, planting, lighting, or maintenance services. Provider participation and service availability may vary by location.",
+    "copyright": "© 2026 Verdeon Design Network LLC. All rights reserved."
+  },
+  "legalLinks": [
+    { "label": "Privacy Policy", "url": "privacy-policy.html" },
+    { "label": "Terms of Service", "url": "terms-of-service.html" },
+    { "label": "Cookie Policy", "url": "cookie-policy.html" }
+  ],
+  "advertise": {
+    "title": "Advertise & Collaborate",
+    "text": "We are always open to new opportunities, high-impact collaborations, and tailored business partnerships. Whether you want to advertise your brand to our audience, launch a joint project, or book our professional services, we are ready to bring your ideas to life. Every business is unique, and we don't believe in one-size-fits-all solutions. Please reach out to us using the contact form below, tell us a bit about your goals, and our team will get back to you with an exclusive, custom-tailored proposal designed strictly for your budget and objectives. Let’s build something great together."
+  },
+  "cookie": {
+    "text": "Verdeon stores a small preference in your browser so the cookie notice does not reappear. No advertising cookies are enabled by this website.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "policyLabel": "Read Cookie Policy"
+  },
+  "form": {
+    "labels": {
+      "fullName": "Full name",
+      "email": "Email address",
+      "inquiryType": "What can we help with?",
+      "service": "Landscape design interest",
+      "propertyType": "Property type",
+      "projectStage": "Current project stage",
+      "budgetRange": "Planning budget range",
+      "message": "Tell us about your goals",
+      "privacyConsent": "I have read the Privacy Policy and consent to Verdeon using this information to respond to my request."
+    },
+    "placeholders": {
+      "fullName": "Your name",
+      "email": "you@example.com",
+      "message": "Share the property context, priorities, timing, and any questions you would like us to consider."
+    },
+    "inquiryOptions": [
+      "Landscape Design Information",
+      "Advertising Opportunity",
+      "Business Collaboration",
+      "General Information"
+    ],
+    "propertyOptions": ["Residential", "Commercial", "Multi-family", "Hospitality", "Other"],
+    "stageOptions": ["Exploring possibilities", "Organizing priorities", "Reviewing design options", "Preparing for implementation", "Updating an existing plan"],
+    "budgetOptions": ["Not established", "Under $5,000", "$5,000–$15,000", "$15,000–$40,000", "$40,000+"],
+    "success": "Thank you. Your request was sent to Verdeon and a team member will review it.",
+    "error": "We could not send your request. Your entries are still here—please try again or email support@verdeon.com.",
+    "validation": "Please review the highlighted fields and provide the missing information."
+  },
+  "services": [
+    {
+      "slug": "residential-landscape-design",
+      "title": "Residential Landscape Design",
+      "shortTitle": "Residential",
+      "url": "residential-landscape-design.html",
+      "image": "assets/images/services/residential.webp",
+      "imageAlt": "Contemporary residential garden with layered planting and stone terrace",
+      "summary": "Explore a coordinated plan for circulation, outdoor rooms, planting character, privacy, and long-term project phasing.",
+      "overview": "A residential landscape plan can connect the architecture of a home with the way people move, gather, relax, and view the property. Verdeon helps organize the initial brief and identify relevant planning options.",
+      "scope": ["Property-wide layout and outdoor room relationships", "Arrival, circulation, views, and privacy priorities", "Planting, hardscape, lighting, and water-use direction", "Practical sequencing for single-phase or gradual implementation"],
+      "stages": ["Property context", "Lifestyle priorities", "Spatial framework", "Material and planting direction", "Phased planning"],
+      "deliverables": [
+        { "title": "Concept framework", "text": "A high-level organization of zones, connections, and opportunities." },
+        { "title": "Planting direction", "text": "Possible character, structure, seasonal interest, and maintenance preferences." },
+        { "title": "Visualization options", "text": "Plan-view or three-dimensional studies may help communicate spatial ideas." }
+      ],
+      "faq": [
+        { "q": "Can an existing yard be redesigned in stages?", "a": "Yes. A planning brief may prioritize essential circulation and grading first, followed by planting, lighting, and finishing details as timing and budget allow." },
+        { "q": "Does Verdeon install the landscape?", "a": "No. Verdeon is an information and provider-matching platform and does not directly perform construction or installation." },
+        { "q": "What information is useful at the start?", "a": "Property photos, a survey if available, known constraints, inspiration, priorities, and an approximate decision timeline are helpful." }
+      ],
+      "related": ["front-yard-design", "backyard-design", "3d-landscape-visualization"]
+    },
+    {
+      "slug": "commercial-landscape-design",
+      "title": "Commercial Landscape Design",
+      "shortTitle": "Commercial",
+      "url": "commercial-landscape-design.html",
+      "image": "assets/images/services/commercial.webp",
+      "imageAlt": "Tree-lined commercial courtyard beside modern offices",
+      "summary": "Consider arrival, shared use, accessibility, visibility, and an outdoor identity appropriate to a commercial property.",
+      "overview": "Commercial landscape planning connects site experience with operational realities. A clear brief can help decision-makers compare options for entrances, common areas, planting character, circulation, and future maintenance expectations.",
+      "scope": ["Arrival sequences and public-facing landscape character", "Pedestrian circulation and accessibility considerations", "Shared outdoor space and tenant or visitor use", "Durable planting and materials direction"],
+      "stages": ["Stakeholder goals", "Site and access review", "Use-zone planning", "Identity and material direction", "Coordination brief"],
+      "deliverables": [
+        { "title": "Site experience brief", "text": "An organized record of audience, access, visibility, and shared-use priorities." },
+        { "title": "Landscape character", "text": "Direction for planting structure, materials, edges, and seasonal presence." },
+        { "title": "Coordination notes", "text": "Questions to discuss with qualified designers, engineers, and implementation providers." }
+      ],
+      "faq": [
+        { "q": "Can the planning process include multiple stakeholders?", "a": "Yes. Verdeon can help organize an inquiry that reflects ownership, management, tenant, visitor, and operational priorities." },
+        { "q": "Are accessibility requirements reviewed?", "a": "Accessibility should be addressed by qualified project professionals. Verdeon can help make it an explicit part of the planning brief." },
+        { "q": "Is provider availability the same in every location?", "a": "No. Participation, experience, and service availability vary by property type and location." }
+      ],
+      "related": ["outdoor-lighting", "garden-planting-plans", "3d-landscape-visualization"]
+    },
+    {
+      "slug": "front-yard-design",
+      "title": "Front Yard Design",
+      "shortTitle": "Front Yard",
+      "url": "front-yard-design.html",
+      "image": "assets/images/services/front-yard.webp",
+      "imageAlt": "Modern front entry with broad stone path and layered planting",
+      "summary": "Shape a clear, welcoming arrival with purposeful paths, planting hierarchy, screening, and a strong relationship to the home.",
+      "overview": "A front yard must work as an approach, threshold, view, and neighborhood-facing space. Planning can clarify how access, planting, privacy, drainage, and architectural character should work together.",
+      "scope": ["Entry sequence and path geometry", "Driveway, gate, porch, and sidewalk relationships", "Screening, openness, and curb-facing planting structure", "Rain-garden, slope, or drainage questions to raise with professionals"],
+      "stages": ["Arrival audit", "Movement lines", "Privacy balance", "Planting hierarchy", "Detail priorities"],
+      "deliverables": [
+        { "title": "Arrival concept", "text": "A clear hierarchy from public edge to front door." },
+        { "title": "Planting rhythm", "text": "Potential structural and seasonal layers that support the architecture." },
+        { "title": "Priority map", "text": "A practical order for pathways, screening, planting, and lighting decisions." }
+      ],
+      "faq": [
+        { "q": "Can a front yard feel private without becoming closed off?", "a": "Often, layered planting, selective screening, and carefully positioned openings can balance privacy with a welcoming approach." },
+        { "q": "Can driveway and walkway changes be considered together?", "a": "Yes. Reviewing their geometry together helps clarify safety, hierarchy, and the visual arrival sequence." },
+        { "q": "Are drainage recommendations engineering advice?", "a": "No. Drainage concerns should be assessed by appropriately qualified professionals. Verdeon helps ensure they are included in the brief." }
+      ],
+      "related": ["residential-landscape-design", "garden-planting-plans", "outdoor-lighting"]
+    },
+    {
+      "slug": "backyard-design",
+      "title": "Backyard Design",
+      "shortTitle": "Backyard",
+      "url": "backyard-design.html",
+      "image": "assets/images/services/backyard.webp",
+      "imageAlt": "Backyard with pergola, dining area, lawn, and layered planting",
+      "summary": "Organize dining, gathering, play, privacy, planting, and movement into a backyard that supports everyday life.",
+      "overview": "Backyard planning starts with how the space should feel and function across a typical day. A spatial framework can reduce conflicts between circulation, furniture, planting, utilities, privacy, and changing family needs.",
+      "scope": ["Dining, lounge, play, garden, and flexible-use zones", "Connections between the home, patio, lawn, and planting", "Privacy, shade, views, and storage considerations", "Potential phasing for hardscape, planting, and lighting"],
+      "stages": ["Daily-use brief", "Zone relationships", "Circulation and scale", "Comfort and privacy", "Phased refinement"],
+      "deliverables": [
+        { "title": "Use-zone plan", "text": "Relationships between dining, relaxing, play, planting, and circulation." },
+        { "title": "Comfort direction", "text": "Questions around shade, privacy, exposure, seating, and evening use." },
+        { "title": "Implementation sequence", "text": "An order that can help preserve access and avoid reworking completed areas." }
+      ],
+      "faq": [
+        { "q": "How much space should be reserved for circulation?", "a": "That depends on furniture, doors, grade changes, accessibility, and expected use. A scaled plan helps test clearances before decisions are made." },
+        { "q": "Can the design support both entertaining and quiet use?", "a": "Yes. Separating active and quiet zones while maintaining clear connections can support multiple patterns of use." },
+        { "q": "Can existing trees be part of the brief?", "a": "Yes. Existing vegetation, shade, roots, condition, and views should be documented for qualified professionals to evaluate." }
+      ],
+      "related": ["patio-walkway-design", "outdoor-lighting", "3d-landscape-visualization"]
+    },
+    {
+      "slug": "garden-planting-plans",
+      "title": "Garden & Planting Plans",
+      "shortTitle": "Planting Plans",
+      "url": "garden-planting-plans.html",
+      "image": "assets/images/services/planting-plan.webp",
+      "imageAlt": "Layered garden planting with grasses, perennials, shrubs, and trees",
+      "summary": "Explore planting structure, seasonal character, spacing, site conditions, and maintenance preferences as one coordinated system.",
+      "overview": "A planting plan can translate desired character into a layered composition that responds to light, soil, exposure, scale, and long-term care expectations. Local suitability must be confirmed by qualified professionals.",
+      "scope": ["Structural trees, shrubs, perennials, and ground layers", "Seasonal sequence, texture, color restraint, and winter presence", "Light, soil, moisture, exposure, and site limitations", "Spacing, establishment, and preferred maintenance intensity"],
+      "stages": ["Site conditions", "Character palette", "Layering strategy", "Seasonal review", "Care expectations"],
+      "deliverables": [
+        { "title": "Planting character", "text": "A concise direction for form, texture, seasonal rhythm, and visual density." },
+        { "title": "Layering logic", "text": "Potential relationships between canopy, structure, seasonal layers, and ground plane." },
+        { "title": "Suitability questions", "text": "A checklist for confirming local conditions, availability, spacing, and care with professionals." }
+      ],
+      "faq": [
+        { "q": "Does a planting plan specify exact plants?", "a": "It may include a conceptual or detailed palette depending on scope. Final suitability and availability should be confirmed locally." },
+        { "q": "Can lower-maintenance preferences be considered?", "a": "Yes. Maintenance expectations should be recorded early so density, access, succession, and plant character can be discussed realistically." },
+        { "q": "Can existing planting be retained?", "a": "Existing plants can be documented for assessment. Retention decisions should reflect health, size, roots, site fit, and the proposed spatial plan." }
+      ],
+      "related": ["front-yard-design", "backyard-design", "residential-landscape-design"]
+    },
+    {
+      "slug": "patio-walkway-design",
+      "title": "Patio & Walkway Design",
+      "shortTitle": "Patio & Walkways",
+      "url": "patio-walkway-design.html",
+      "image": "assets/images/services/patio-walkway.webp",
+      "imageAlt": "Refined pale stone walkway with dark edging and planted terraces",
+      "summary": "Consider circulation, scale, grade transitions, materials, edges, and the relationship between paved and planted space.",
+      "overview": "Patios and walkways establish the functional framework of an outdoor space. Early planning can test dimensions, transitions, furniture clearances, drainage questions, and material character before implementation decisions.",
+      "scope": ["Primary and secondary circulation routes", "Patio scale, furniture clearances, and door relationships", "Steps, ramps, grades, thresholds, and edge conditions", "Material direction and relationships with planting"],
+      "stages": ["Movement audit", "Scaled use zones", "Grade questions", "Material family", "Edge and planting integration"],
+      "deliverables": [
+        { "title": "Circulation diagram", "text": "A hierarchy of primary routes, secondary paths, thresholds, and pauses." },
+        { "title": "Material direction", "text": "A coordinated family of surface, edge, step, and transition ideas." },
+        { "title": "Technical question list", "text": "Items such as grade, drainage, base preparation, and accessibility for professionals to resolve." }
+      ],
+      "faq": [
+        { "q": "Can different paving materials be combined?", "a": "Yes, but a limited material family and clear hierarchy usually create a more coherent result." },
+        { "q": "Are construction details included?", "a": "Verdeon does not provide construction documents. Qualified local professionals should resolve structural, drainage, code, and installation details." },
+        { "q": "Can an existing patio be incorporated?", "a": "It can be documented as part of the planning context so connections, scale, condition, and expansion options can be discussed." }
+      ],
+      "related": ["backyard-design", "outdoor-lighting", "3d-landscape-visualization"]
+    },
+    {
+      "slug": "outdoor-lighting",
+      "title": "Outdoor Lighting",
+      "shortTitle": "Outdoor Lighting",
+      "url": "outdoor-lighting.html",
+      "image": "assets/images/services/outdoor-lighting.webp",
+      "imageAlt": "Garden path and trees illuminated with restrained warm landscape lighting",
+      "summary": "Explore a nighttime hierarchy for safe movement, welcoming entrances, focal planting, and comfortable outdoor use.",
+      "overview": "A lighting concept should begin with purpose: safe circulation, useful task light, restrained atmosphere, and selective emphasis. Electrical design and installation must be completed by qualified professionals.",
+      "scope": ["Entry, path, step, and transition priorities", "Outdoor dining, gathering, and task-light needs", "Selective planting, wall, and architectural emphasis", "Glare, color temperature, controls, and dark-sky awareness"],
+      "stages": ["Night-use audit", "Safety hierarchy", "Atmosphere zones", "Fixture intent", "Professional coordination"],
+      "deliverables": [
+        { "title": "Lighting hierarchy", "text": "A diagram of essential, useful, and atmospheric lighting priorities." },
+        { "title": "Mood direction", "text": "Guidance around warmth, contrast, restraint, and focal moments." },
+        { "title": "Coordination brief", "text": "Questions for licensed electrical and landscape professionals regarding fixtures, power, controls, and compliance." }
+      ],
+      "faq": [
+        { "q": "Does more lighting make a landscape safer?", "a": "Not necessarily. Good visibility, controlled contrast, clear transitions, and reduced glare can matter more than overall brightness." },
+        { "q": "Does Verdeon perform electrical work?", "a": "No. Verdeon does not install lighting or perform electrical services." },
+        { "q": "Can lighting be planned before the landscape is installed?", "a": "Yes. Early coordination can help identify routes, sleeves, power questions, controls, and planting relationships before implementation." }
+      ],
+      "related": ["front-yard-design", "patio-walkway-design", "commercial-landscape-design"]
+    },
+    {
+      "slug": "3d-landscape-visualization",
+      "title": "3D Landscape Visualization",
+      "shortTitle": "3D Visualization",
+      "url": "3d-landscape-visualization.html",
+      "image": "assets/images/services/visualization-3d.webp",
+      "imageAlt": "Photorealistic garden visualization displayed on a design studio monitor",
+      "summary": "Understand how plan views, perspective studies, and rendered concepts may help communicate scale, materials, planting, and atmosphere.",
+      "overview": "Visualization can make spatial ideas easier to discuss before implementation. The appropriate level of detail depends on the question: a simple massing view, a material study, or a more developed rendered concept.",
+      "scope": ["Plan-view and perspective relationships", "Massing, scale, sightline, and spatial studies", "Material, planting character, and lighting direction", "Viewpoint selection and revision priorities"],
+      "stages": ["Define the decision", "Confirm base information", "Build spatial framework", "Develop visual character", "Review and refine"],
+      "deliverables": [
+        { "title": "Plan-view study", "text": "A top-down framework for layout, scale, circulation, and key relationships." },
+        { "title": "Perspective direction", "text": "One or more views focused on important decisions rather than decorative imagery alone." },
+        { "title": "Revision record", "text": "Clear notes documenting agreed changes and questions requiring professional confirmation." }
+      ],
+      "faq": [
+        { "q": "Is a rendering the same as a construction drawing?", "a": "No. A visualization communicates spatial or aesthetic direction; it does not replace technical construction documents." },
+        { "q": "How accurate can a 3D study be?", "a": "Accuracy depends on the quality of survey, dimensions, architecture, product information, and scope supplied to the visualization professional." },
+        { "q": "Do all projects need 3D visualization?", "a": "No. A clear plan view may be sufficient for many decisions. Visualization is most useful when scale, height, views, or atmosphere are difficult to judge in plan." }
+      ],
+      "related": ["residential-landscape-design", "commercial-landscape-design", "patio-walkway-design"]
+    }
+  ]
+}
