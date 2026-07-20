@@ -5,6 +5,97 @@ export function initHome(config) {
   initPlanningSteps();
   initHomeFaqAccordion();
   renderPlanningStepIcons();
+  initHomeServiceStack();
+}
+
+function initHomeServiceStack() {
+  const slider = document.querySelector(
+    "[data-home-service-stack]"
+  );
+
+  if (!slider || !window.Swiper) {
+    return;
+  }
+
+  if (slider.dataset.initialized === "true") {
+    return;
+  }
+
+  slider.dataset.initialized = "true";
+
+  const section = slider.closest(".home-service-stack");
+
+  const previousButton = section?.querySelector(
+    "[data-home-service-stack-prev]"
+  );
+
+  const nextButton = section?.querySelector(
+    "[data-home-service-stack-next]"
+  );
+
+  const pagination = section?.querySelector(
+    "[data-home-service-stack-pagination]"
+  );
+
+  new window.Swiper(slider, {
+    direction: "horizontal",
+    slidesPerView: 1.08,
+    spaceBetween: 16,
+    speed: 720,
+    loop: true,
+    grabCursor: true,
+    slideToClickedSlide: true,
+    watchSlidesProgress: true,
+
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true
+    },
+
+    navigation: {
+      prevEl: previousButton,
+      nextEl: nextButton
+    },
+
+    pagination: {
+      el: pagination,
+      clickable: true
+    },
+
+    breakpoints: {
+      0: {
+        direction: "horizontal",
+        slidesPerView: 1.06,
+        spaceBetween: 14,
+        centeredSlides: false
+      },
+
+      600: {
+        direction: "horizontal",
+        slidesPerView: 1.18,
+        spaceBetween: 18,
+        centeredSlides: true
+      },
+
+      1024: {
+        direction: "vertical",
+        slidesPerView: 3,
+        spaceBetween: 18,
+        centeredSlides: true
+      }
+    },
+
+    on: {
+      init() {
+        if (
+          window.lucide &&
+          typeof window.lucide.createIcons === "function"
+        ) {
+          window.lucide.createIcons();
+        }
+      }
+    }
+  });
 }
 
 function initHomeFaqAccordion() {

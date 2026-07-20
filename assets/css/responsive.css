@@ -1,5 +1,5 @@
 @media(max-width:430px){:root{--page-gutter:1.15rem}.v-button{width:100%}.v-cluster>.v-text-link{width:100%;justify-content:center}.site-logo__word{font-size:1.28rem}}
-@media(min-width:1680px){:root{--page-gutter:4rem}.v-section{padding-block:9.5rem}}
+@media(min-width:1680px){:root{--page-gutter:4rem}.v-section{padding-block:4.75rem}}
 .about-hero{--hero-image:url('../images/home/planning-discussion.webp')}
 .services-hero{--hero-image:url('../images/services/commercial.webp')}
 .gallery-hero{--hero-image:url('../images/gallery/courtyard.webp')}
