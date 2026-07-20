@@ -561,3 +561,76 @@
         font-size: clamp(2.5rem, 10.5vw, 3.8rem);
     }
 }
+
+/* =========================================================
+   GALLERY COLLECTION HEADINGS — FULL WIDTH CENTER
+========================================================= */
+
+.gallery-centered-section .v-section-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    max-width: none;
+    margin: 0 0 clamp(3rem, 5vw, 5rem);
+
+    text-align: center;
+}
+
+.gallery-centered-section .v-section-head>div {
+    width: 100%;
+    max-width: none;
+    margin-inline: auto;
+}
+
+.gallery-centered-section .v-section-head .v-eyebrow {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    margin: 0 0 0.9rem;
+
+    text-align: center;
+}
+
+.gallery-centered-section .v-section-head h2 {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+
+    color: var(--color-forest-deep, #102015);
+    font-size: clamp(3rem, 5vw, 5.8rem);
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+    text-align: center;
+    text-wrap: balance;
+}
+
+@media (max-width: 900px) {
+    .gallery-centered-section .v-section-head {
+        margin-bottom: 3rem;
+    }
+
+    .gallery-centered-section .v-section-head h2 {
+        font-size: clamp(2.8rem, 7vw, 4.6rem);
+    }
+}
+
+@media (max-width: 640px) {
+    .gallery-centered-section .v-section-head {
+        margin-bottom: 2.4rem;
+    }
+
+    .gallery-centered-section .v-section-head .v-eyebrow {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .gallery-centered-section .v-section-head h2 {
+        font-size: clamp(2.5rem, 11vw, 3.8rem);
+        line-height: 1;
+        text-align: center;
+    }
+}
