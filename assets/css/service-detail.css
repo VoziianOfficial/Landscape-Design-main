@@ -1,3 +1,139 @@
+/* =========================================================
+   SERVICE DETAIL HERO + FIXED HEADER
+========================================================= */
+
+body[data-page="service-detail"] .site-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: auto;
+    max-width: none;
+    overflow: hidden;
+    z-index: 120;
+    transform: translateZ(0)
+}
+
+body[data-page="service-detail"] .site-header__inner {
+    width: min(calc(100% - 2 * var(--page-gutter)), var(--container-wide));
+    max-width: none
+}
+
+body[data-page="service-detail"] main {
+    padding-top: var(--header-height)
+}
+
+body[data-page="service-detail"] .service-hero {
+    min-height: clamp(310px, 32vw, 430px);
+    padding: clamp(2rem, 4vw, 3.2rem) 0 clamp(2.4rem, 4.5vw, 3.8rem)
+}
+
+body[data-page="service-detail"] .service-hero .internal-hero__content {
+    min-width: 0;
+    max-width: min(calc(100% - 2 * var(--page-gutter)), 1260px);
+    gap: clamp(.85rem, 1.8vw, 1.15rem)
+}
+
+body[data-page="service-detail"] .service-hero .internal-hero__content>*,
+body[data-page="service-detail"] .service-hero .internal-hero__content>div {
+    min-width: 0;
+    max-width: 100%
+}
+
+body[data-page="service-detail"] .service-hero h1 {
+    width: min(100%, 1120px);
+    max-width: 100%;
+    font-size: clamp(3.15rem, 5.6vw, 5rem);
+    line-height: 1;
+    overflow-wrap: break-word;
+    text-wrap: balance
+}
+
+body[data-page="service-detail"] .service-hero .breadcrumb {
+    max-width: min(100%, 860px);
+    min-width: 0;
+    white-space: normal
+}
+
+body[data-page="service-detail"] .service-hero .breadcrumb a,
+body[data-page="service-detail"] .service-hero .breadcrumb span {
+    min-width: 0;
+    overflow-wrap: break-word
+}
+
+body[data-page="service-detail"] .service-hero .internal-hero__content>div:nth-child(2) {
+    width: min(100%, 760px)
+}
+
+@media(max-width:1023px) {
+    body[data-page="service-detail"] .service-hero {
+        min-height: clamp(300px, 46svh, 410px);
+        padding: clamp(1.8rem, 5vw, 2.8rem) 0 clamp(2.1rem, 5vw, 3rem)
+    }
+
+    body[data-page="service-detail"] .service-hero h1 {
+        width: min(100%, 780px);
+        font-size: clamp(2.45rem, 7.2vw, 3.8rem);
+        line-height: 1.02
+    }
+
+    body[data-page="service-detail"] .service-hero .internal-hero__content>div:nth-child(2) {
+        width: min(100%, 620px)
+    }
+}
+
+@media(max-width:767px) {
+    body[data-page="service-detail"] .site-header {
+        right: auto;
+        width: 100vw;
+        max-width: 100vw
+    }
+
+    body[data-page="service-detail"] .site-header__inner {
+        width: min(calc(100vw - 2 * var(--page-gutter)), var(--container-wide));
+        max-width: calc(100vw - 2 * var(--page-gutter))
+    }
+
+    body[data-page="service-detail"] .service-hero {
+        min-height: clamp(290px, 54svh, 390px);
+        padding: clamp(1.55rem, 6vw, 2.25rem) 0 clamp(1.8rem, 7vw, 2.55rem)
+    }
+
+    body[data-page="service-detail"] .service-hero h1 {
+        width: min(100%, 11.5ch);
+        font-size: clamp(2rem, 9.4vw, 2.9rem);
+        line-height: 1.03
+    }
+
+    body[data-page="service-detail"] .service-hero .breadcrumb {
+        gap: .36rem;
+        width: fit-content;
+        max-width: 100%;
+        padding: .48rem .65rem;
+        font-size: .6rem;
+        line-height: 1.25
+    }
+
+    body[data-page="service-detail"] .service-hero .internal-hero__content>div:nth-child(2) {
+        width: min(100%, 34rem)
+    }
+
+    body[data-page="service-detail"] .service-hero .v-button {
+        width: min(100%, 320px)
+    }
+}
+
+@media(max-width:420px) {
+    body[data-page="service-detail"] .service-hero h1 {
+        width: min(100%, 10.5ch);
+        font-size: clamp(1.88rem, 8.9vw, 2.35rem)
+    }
+
+    body[data-page="service-detail"] .service-hero .breadcrumb {
+        font-size: .56rem
+    }
+}
+
 .service-detail-overview {
     display: grid;
     grid-template-columns: .5fr 1.5fr;
@@ -321,7 +457,13 @@ body[data-service-slug="3d-landscape-visualization"] .service-stage-parallax {
 .service-related-carousel {
     position: relative;
     overflow: hidden;
+    overflow: clip;
+    contain: layout paint;
     background: #ffffff;
+}
+
+body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
+    overflow: hidden;
 }
 
 .service-related-carousel::before,
@@ -398,10 +540,14 @@ body[data-service-slug="3d-landscape-visualization"] .service-stage-parallax {
 .service-related-carousel__swiper {
     width: min(1380px, 100%);
     margin-inline: auto;
-    overflow: hidden;
+    max-width: 100%;
+    overflow: hidden !important;
+    overflow: clip !important;
+    contain: layout paint;
 }
 
 .service-related-carousel__swiper .swiper-wrapper {
+    max-width: 100%;
     align-items: stretch;
 }
 
@@ -1159,6 +1305,7 @@ body[data-service-slug="3d-landscape-visualization"] .service-stage-parallax {
 .service-split-showcase {
     position: relative;
     overflow: hidden;
+    overflow: clip;
     padding-block: clamp(4rem, 7vw, 7rem);
     background: #ffffff;
 }
@@ -1169,6 +1316,7 @@ body[data-service-slug="3d-landscape-visualization"] .service-stage-parallax {
 
 .service-split-showcase__shell {
     width: min(1560px, calc(100% - 48px));
+    max-width: 100%;
 }
 
 
@@ -1184,6 +1332,7 @@ body[data-service-slug="3d-landscape-visualization"] .service-stage-parallax {
         "focus-content secondary-image";
 
     overflow: hidden;
+    max-width: 100%;
     border: 1px solid rgba(27, 41, 26, 0.1);
     border-radius: clamp(1.4rem, 2.4vw, 2.5rem);
 
@@ -1424,6 +1573,16 @@ body[data-service-slug="3d-landscape-visualization"] .service-stage-parallax {
 ========================================================= */
 
 @media (max-width: 900px) {
+    body[data-page="service-detail"] .service-split-showcase [data-aos="fade-left"],
+    body[data-page="service-detail"] .service-split-showcase [data-aos="fade-right"] {
+        transform: translate3d(0, 28px, 0);
+    }
+
+    body[data-page="service-detail"] .service-split-showcase [data-aos="fade-left"].aos-animate,
+    body[data-page="service-detail"] .service-split-showcase [data-aos="fade-right"].aos-animate {
+        transform: none;
+    }
+
     .service-split-showcase__shell {
         width: min(100% - 40px, 1560px);
     }

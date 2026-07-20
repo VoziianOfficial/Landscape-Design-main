@@ -1,17 +1,18 @@
 {
-  "brand": {
-    "name": "Verdeon",
-    "tagline": "Plan Better Outdoors.",
-    "supportingPhrase": "Thoughtful landscape planning for properties of every scale.",
-    "logoAlt": "Verdeon landscape planning",
-    "legalName": "Verdeon Design Network LLC"
-  },
-  "contact": {
+  "siteIdentity": {
+    "brandName": "Verdeon",
+    "legalName": "Verdeon Design Network LLC",
     "email": "support@verdeon.com",
     "addressLine1": "1847 Cedar Grove Avenue, Suite 210",
     "cityStateZip": "Portland, OR 97205",
     "country": "United States"
   },
+  "brand": {
+    "tagline": "Plan Better Outdoors.",
+    "supportingPhrase": "Thoughtful landscape planning for properties of every scale.",
+    "logoAlt": "Verdeon landscape planning"
+  },
+  "contact": {},
   "navigation": [
     { "label": "Home", "url": "index.html" },
     { "label": "About", "url": "about.html" },

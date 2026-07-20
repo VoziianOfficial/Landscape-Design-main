@@ -44,11 +44,39 @@ $configPath = __DIR__ . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . '
 $configJson = is_readable($configPath) ? file_get_contents($configPath) : false;
 $config = $configJson !== false ? json_decode($configJson, true) : null;
 
-if (!is_array($config) || empty($config['contact']['email']) || !filter_var($config['contact']['email'], FILTER_VALIDATE_EMAIL)) {
-    respond(500, false, 'The contact service is not configured correctly. Please email support@verdeon.com.');
+if (!is_array($config)) {
+    respond(500, false, 'The contact service is not configured correctly.');
 }
 
-$recipient = (string) $config['contact']['email'];
+$identityConfig = is_array($config['siteIdentity'] ?? null) ? $config['siteIdentity'] : [];
+$brandName = trim((string) ($identityConfig['brandName'] ?? $config['brandName'] ?? $config['brand']['name'] ?? 'Verdeon'));
+$legalName = trim((string) ($identityConfig['legalName'] ?? $config['legalName'] ?? $config['brand']['legalName'] ?? $brandName));
+$recipient = trim((string) ($identityConfig['email'] ?? $config['email'] ?? $config['contact']['email'] ?? ''));
+$identity = [
+    'brandName' => $brandName,
+    'legalName' => $legalName,
+    'email' => $recipient,
+    'addressLine1' => trim((string) ($identityConfig['addressLine1'] ?? $config['addressLine1'] ?? $config['contact']['addressLine1'] ?? '')),
+    'cityStateZip' => trim((string) ($identityConfig['cityStateZip'] ?? $config['cityStateZip'] ?? $config['contact']['cityStateZip'] ?? '')),
+    'country' => trim((string) ($identityConfig['country'] ?? $config['country'] ?? $config['contact']['country'] ?? '')),
+];
+
+function identity_text(string $value, array $identity): string
+{
+    return strtr($value, [
+        'Verdeon Design Network LLC' => $identity['legalName'],
+        '1847 Cedar Grove Avenue, Suite 210' => $identity['addressLine1'],
+        'Portland, OR 97205' => $identity['cityStateZip'],
+        'support@verdeon.com' => $identity['email'],
+        'United States' => $identity['country'],
+        'Verdeon' => $identity['brandName'],
+    ]);
+}
+
+if (!filter_var($recipient, FILTER_VALIDATE_EMAIL)) {
+    respond(500, false, 'The contact service is not configured correctly.');
+}
+
 $fullName = text_value('fullName', 100);
 $email = text_value('email', 190);
 $inquiryType = text_value('inquiryType', 80);
@@ -112,7 +140,7 @@ if (string_length($message) < 20) {
     $errors['message'] = 'Provide at least 20 characters about your goals.';
 }
 if ($privacyConsent !== 'yes') {
-    $errors['privacyConsent'] = 'Consent is required so Verdeon can respond.';
+    $errors['privacyConsent'] = 'Consent is required so ' . $brandName . ' can respond.';
 }
 if ($sourcePage === '' || preg_match('/[\r\n]/', $sourcePage)) {
     $errors['sourcePage'] = 'The source page is invalid.';
@@ -123,8 +151,11 @@ if ($errors !== []) {
 }
 
 $safe = static fn(string $value): string => htmlspecialchars($value !== '' ? $value : 'Not provided', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
-$subject = '[Verdeon] ' . preg_replace('/[^A-Za-z0-9 &\-]/', '', $inquiryType) . ' inquiry';
-$plainText = "New Verdeon website inquiry\n\n"
+$safeHeaderBrand = trim(preg_replace('/[\r\n<>]+/', '', $brandName) ?? '') ?: 'Website';
+$fromDomain = substr(strrchr($recipient, '@') ?: '', 1) ?: 'example.com';
+$fromEmail = 'no-reply@' . $fromDomain;
+$subject = '[' . $safeHeaderBrand . '] ' . preg_replace('/[^A-Za-z0-9 &\-]/', '', $inquiryType) . ' inquiry';
+$plainText = "New {$brandName} website inquiry\n\n"
     . "Name: {$fullName}\nEmail: {$email}\nInquiry type: {$inquiryType}\nService: " . ($service ?: 'Not provided')
     . "\nProperty type: " . ($propertyType ?: 'Not provided')
     . "\nProject stage: " . ($projectStage ?: 'Not provided')
@@ -132,7 +163,7 @@ $plainText = "New Verdeon website inquiry\n\n"
     . "\nSource page: {$sourcePage}\n\nMessage:\n{$message}\n";
 
 $html = '<!doctype html><html><body style="font-family:Arial,sans-serif;color:#171a17">'
-    . '<h1 style="color:#1b291a">New Verdeon website inquiry</h1>'
+    . '<h1 style="color:#1b291a">New ' . $safe($brandName) . ' website inquiry</h1>'
     . '<table cellpadding="8" cellspacing="0" style="border-collapse:collapse">'
     . '<tr><th align="left">Name</th><td>' . $safe($fullName) . '</td></tr>'
     . '<tr><th align="left">Email</th><td>' . $safe($email) . '</td></tr>'
@@ -148,7 +179,7 @@ $boundary = 'verdeon_' . bin2hex(random_bytes(12));
 $headers = [
     'MIME-Version: 1.0',
     'Content-Type: multipart/alternative; boundary="' . $boundary . '"',
-    'From: Verdeon Website <no-reply@verdeon.com>',
+    'From: ' . $safeHeaderBrand . ' Website <' . $fromEmail . '>',
     'Reply-To: ' . $email,
     'X-Mailer: PHP/' . PHP_VERSION,
 ];
@@ -161,7 +192,12 @@ $body = '--' . $boundary . "\r\n"
 
 $sent = @mail($recipient, $subject, $body, implode("\r\n", $headers));
 if (!$sent) {
-    respond(502, false, 'The server could not send your request. Your entries remain available in the form; please try again or email support@verdeon.com.');
+    respond(502, false, 'The server could not send your request. Your entries remain available in the form; please try again or email ' . $recipient . '.');
 }
 
-respond(200, true, (string) ($config['form']['success'] ?? 'Thank you. Your request was sent to Verdeon.'));
+$successMessage = identity_text(
+    (string) ($config['form']['success'] ?? "Thank you. Your request was sent to {$brandName}."),
+    $identity
+);
+
+respond(200, true, $successMessage);
