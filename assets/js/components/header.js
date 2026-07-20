@@ -7,7 +7,7 @@ export function renderHeader(config){
   const services=config.services||[];
   const nav=(config.navigation||[]).map(item=>{
     const active=current===item.url||(item.dropdown&&services.some(service=>service.url===current));
-    if(item.dropdown)return `<div class="site-nav__item"><button type="button" aria-expanded="false" aria-controls="services-menu">${escapeHTML(item.label)} <span aria-hidden="true">⌄</span></button><div id="services-menu" class="site-nav__dropdown">${services.map(service=>`<a href="${service.url}"${current===service.url?' aria-current="page"':''}>${escapeHTML(service.title)}</a>`).join('')}<a href="all-services.html">View all design options →</a></div></div>`;
+    if(item.dropdown)return `<div class="site-nav__item"><a class="site-nav__link site-nav__link--dropdown" href="${item.url}"${active?' aria-current="page"':''} aria-haspopup="true" aria-controls="services-menu">${escapeHTML(item.label)} <span class="site-nav__chevron" aria-hidden="true"></span></a><div id="services-menu" class="site-nav__dropdown">${services.map(service=>`<a href="${service.url}"${current===service.url?' aria-current="page"':''}>${escapeHTML(service.title)}</a>`).join('')}<a href="all-services.html">View all design options →</a></div></div>`;
     return `<a href="${item.url}"${active?' aria-current="page"':''}>${escapeHTML(item.label)}</a>`
   }).join('');
   const mobileServices=services.map(service=>`<a href="${service.url}">${escapeHTML(service.shortTitle||service.title)}</a>`).join('');
@@ -15,8 +15,6 @@ export function renderHeader(config){
   host.innerHTML=`<div class="site-header__inner v-container--wide"><a class="site-logo" href="index.html" aria-label="${escapeHTML(config.brand.logoAlt||config.brand.name)} home">${logoMarkup}<span class="site-logo__word">${escapeHTML(config.brand.name)}</span></a><nav class="site-nav" aria-label="Primary navigation">${nav}</nav><a class="v-button v-button--primary site-header__cta" href="contact.html">${escapeHTML(config.ctas.consultation)}</a><button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation"><span></span></button></div>`;
   document.querySelector('[data-mobile-menu]')?.remove();
   document.body.insertAdjacentHTML('beforeend',`<div id="mobile-menu" class="mobile-panel" data-mobile-menu aria-hidden="true"><div class="mobile-panel__head"><a class="site-logo" href="index.html">${logoMarkup}<span class="site-logo__word">${escapeHTML(config.brand.name)}</span></a><button class="mobile-panel__close" type="button" aria-label="Close navigation">×</button></div><nav class="mobile-panel__nav" aria-label="Mobile navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="all-services.html">Services</a><div class="mobile-panel__services">${mobileServices}</div><a href="gallery.html">Project Gallery</a><a href="contact.html">Contact</a><a class="v-button v-button--primary" href="contact.html">${escapeHTML(config.ctas.consultation)}</a></nav><p class="mobile-panel__footer">${escapeHTML(config.brand.tagline)}</p></div>`);
-  const dropdownButton=host.querySelector('.site-nav__item>button');
-  dropdownButton?.addEventListener('click',()=>{const open=dropdownButton.getAttribute('aria-expanded')==='true';dropdownButton.setAttribute('aria-expanded',String(!open));dropdownButton.nextElementSibling?.classList.toggle('is-open',!open)});
   const onScroll=()=>host.classList.toggle('is-scrolled',scrollY>24);onScroll();addEventListener('scroll',onScroll,{passive:true});
 }
 
