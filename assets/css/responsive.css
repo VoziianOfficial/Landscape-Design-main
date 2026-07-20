@@ -561,4 +561,23 @@ body[data-page="service-detail"] .service-split-showcase [data-aos="fade-right"]
     .v-section.home-service-stack {
         display: none !important;
     }
+
+    .v-accordion__panel,
+    .home-faq__panel {
+        text-align: center;
+    }
+
+    .v-accordion__panel>div,
+    .home-faq__panel>div,
+    .home-faq--editorial .home-faq__item.is-open .home-faq__panel>div,
+    .home-faq--editorial .home-faq__item:has(.home-faq__button[aria-expanded="true"]) .home-faq__panel>div {
+        padding-inline: clamp(1rem, 5vw, 1.35rem) !important;
+    }
+
+    .v-accordion__panel p,
+    .home-faq__panel p {
+        margin-inline: auto;
+        padding-inline: 0 !important;
+        text-align: center;
+    }
 }
