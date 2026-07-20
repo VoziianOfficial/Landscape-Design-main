@@ -915,6 +915,22 @@
         display: none
     }
 
+    .home-hero__copy {
+        justify-self: center;
+        margin-inline: auto;
+        text-align: center
+    }
+
+    .home-hero h1,
+    .home-hero__lede {
+        margin-inline: auto
+    }
+
+    .home-hero .v-eyebrow,
+    .home-hero .v-cluster {
+        justify-content: center
+    }
+
     .home-intro__media {
         order: 2
     }
