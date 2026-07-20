@@ -1,8 +1,534 @@
-@media(max-width:430px){:root{--page-gutter:1.15rem}.v-button{width:100%}.v-cluster>.v-text-link{width:100%;justify-content:center}.site-logo__word{font-size:1.28rem}}
-@media(min-width:1680px){:root{--page-gutter:4rem}.v-section{padding-block:4.75rem}}
-.about-hero{--hero-image:url('../images/home/planning-discussion.webp')}
-.services-hero{--hero-image:url('../images/services/commercial.webp')}
-.gallery-hero{--hero-image:url('../images/gallery/courtyard.webp')}
-.contact-hero{--hero-image:url('../images/home/planning-discussion.webp')}
-.service-hero{--hero-image:url('../images/services/residential.webp')}body[data-service-slug="commercial-landscape-design"] .service-hero{--hero-image:url('../images/services/commercial.webp')}body[data-service-slug="front-yard-design"] .service-hero{--hero-image:url('../images/services/front-yard.webp')}body[data-service-slug="backyard-design"] .service-hero{--hero-image:url('../images/services/backyard.webp')}body[data-service-slug="garden-planting-plans"] .service-hero{--hero-image:url('../images/services/planting-plan.webp')}body[data-service-slug="patio-walkway-design"] .service-hero{--hero-image:url('../images/services/patio-walkway.webp')}body[data-service-slug="outdoor-lighting"] .service-hero{--hero-image:url('../images/services/outdoor-lighting.webp')}body[data-service-slug="3d-landscape-visualization"] .service-hero{--hero-image:url('../images/services/visualization-3d.webp')}
-.hp-field{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}.home-faq__grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(3rem,8vw,8rem);align-items:start}.home-final__inner{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center}.home-final__inner p{margin-top:1rem}@media(max-width:767px){.home-faq__grid,.home-final__inner{grid-template-columns:1fr}}
+/* =========================================================
+   VERDEON — SERVICE PAGE MOBILE CONTAINMENT FIX
+
+   Load this file AFTER responsive.css on every service page,
+   or paste this entire file at the END of responsive.css.
+
+   This block fixes:
+   - horizontal page overflow;
+   - hero content leaving the container;
+   - sticky service-page header;
+   - mobile menu width/position;
+   - cards and grids exceeding the viewport;
+   - horizontal AOS transforms on small screens.
+========================================================= */
+
+/* ---------- GLOBAL TABLET / MOBILE H2 CENTERING ---------- */
+
+@media (max-width: 1023px) {
+    h2 {
+        max-inline-size: min(100%, 980px);
+        margin-inline: auto !important;
+        text-align: center !important;
+        justify-self: center;
+    }
+
+    .v-section-head {
+        grid-template-columns: minmax(0, 1fr) !important;
+        justify-items: center;
+        text-align: center;
+    }
+
+    .v-section-head>div,
+    .v-section-head__aside {
+        justify-self: center !important;
+        max-inline-size: min(100%, 760px);
+        text-align: center !important;
+    }
+
+    .v-section-head .v-eyebrow {
+        justify-content: center;
+        margin-inline: auto;
+    }
+}
+
+/* ---------- GLOBAL WIDTH MODEL FOR SERVICE PAGES ---------- */
+
+html {
+    max-inline-size: 100%;
+    overflow-x: clip;
+}
+
+body[data-page="service-detail"],
+body[data-page="service-detail"] *,
+body[data-page="service-detail"] *::before,
+body[data-page="service-detail"] *::after {
+    box-sizing: border-box;
+}
+
+body[data-page="service-detail"] {
+    inline-size: 100%;
+    max-inline-size: 100%;
+    margin: 0;
+    overflow-x: clip;
+}
+
+body[data-page="service-detail"] main,
+body[data-page="service-detail"] main>section,
+body[data-page="service-detail"] section,
+body[data-page="service-detail"] article,
+body[data-page="service-detail"] aside,
+body[data-page="service-detail"] figure,
+body[data-page="service-detail"] nav,
+body[data-page="service-detail"] ul,
+body[data-page="service-detail"] li,
+body[data-page="service-detail"] div {
+    min-inline-size: 0;
+}
+
+body[data-page="service-detail"] main,
+body[data-page="service-detail"] main>section {
+    inline-size: 100%;
+    max-inline-size: 100%;
+}
+
+/* Never allow media to create page overflow. */
+
+body[data-page="service-detail"] img,
+body[data-page="service-detail"] svg,
+body[data-page="service-detail"] video,
+body[data-page="service-detail"] iframe {
+    max-inline-size: 100%;
+}
+
+/* Long service names must wrap instead of widening a grid/flex item. */
+
+body[data-page="service-detail"] h1,
+body[data-page="service-detail"] h2,
+body[data-page="service-detail"] h3,
+body[data-page="service-detail"] p,
+body[data-page="service-detail"] a,
+body[data-page="service-detail"] li,
+body[data-page="service-detail"] span {
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+}
+
+/* ---------- ONE CONSISTENT CONTAINER MODEL ---------- */
+
+body[data-page="service-detail"] .v-container {
+    inline-size: 100% !important;
+    max-inline-size: var(--container, 1180px) !important;
+    margin-inline: auto !important;
+    padding-inline: var(--page-gutter, 1.25rem) !important;
+}
+
+body[data-page="service-detail"] .v-container--wide {
+    inline-size: 100% !important;
+    max-inline-size: var(--container-wide, 1440px) !important;
+    margin-inline: auto !important;
+    padding-inline: var(--page-gutter, 1.25rem) !important;
+}
+
+/*
+ * This element already has v-container--wide in HTML.
+ * Do not give it a second calculated width.
+ */
+
+body[data-page="service-detail"] .service-split-showcase__shell {
+    inline-size: 100% !important;
+    max-inline-size: var(--container-wide, 1440px) !important;
+}
+
+/* ---------- STICKY HEADER ---------- */
+
+body[data-page="service-detail"]>[data-site-header] {
+    position: sticky !important;
+    inset-block-start: 0 !important;
+    z-index: 5000 !important;
+
+    display: block;
+    inline-size: 100%;
+    max-inline-size: 100%;
+
+    overflow: visible !important;
+    transform: none !important;
+    contain: none !important;
+}
+
+body[data-page="service-detail"] .site-header {
+    position: relative !important;
+
+    inset: auto !important;
+
+    inline-size: 100% !important;
+    max-inline-size: 100% !important;
+
+    overflow: visible !important;
+    transform: none !important;
+    contain: none !important;
+}
+
+body[data-page="service-detail"] .site-header__inner {
+    inline-size: 100% !important;
+    max-inline-size: var(--container-wide, 1440px) !important;
+    min-inline-size: 0;
+
+    margin-inline: auto !important;
+    padding-inline: var(--page-gutter, 1.25rem) !important;
+}
+
+body[data-page="service-detail"] .site-header__inner>*,
+body[data-page="service-detail"] .site-header__actions,
+body[data-page="service-detail"] .site-header__brand,
+body[data-page="service-detail"] .site-logo {
+    min-inline-size: 0;
+}
+
+body[data-page="service-detail"] main {
+    padding-block-start: 0 !important;
+}
+
+/* ---------- MOBILE MENU ---------- */
+
+/*
+ * left + right = 0 with width:auto is safer than width:100%
+ * inside a generated/sticky header mount.
+ */
+
+body[data-page="service-detail"] [data-mobile-menu],
+body[data-page="service-detail"] .mobile-menu {
+    position: fixed !important;
+
+    inset: 0 !important;
+
+    inline-size: auto !important;
+    max-inline-size: none !important;
+
+    block-size: 100vh !important;
+    block-size: 100dvh !important;
+
+    margin: 0 !important;
+
+    overflow: hidden;
+    z-index: 10000 !important;
+}
+
+body[data-page="service-detail"] .mobile-menu__panel {
+    position: absolute !important;
+
+    inset-block: 0 !important;
+    inset-inline-end: 0 !important;
+
+    inline-size: min(430px, 100%) !important;
+    max-inline-size: 100% !important;
+    min-inline-size: 0 !important;
+
+    block-size: 100vh !important;
+    block-size: 100dvh !important;
+
+    margin: 0 0 0 auto !important;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+body[data-page="service-detail"] .mobile-menu__top,
+body[data-page="service-detail"] .mobile-menu__body,
+body[data-page="service-detail"] .mobile-menu__nav,
+body[data-page="service-detail"] .mobile-menu__services,
+body[data-page="service-detail"] .mobile-menu__section {
+    inline-size: 100%;
+    max-inline-size: 100%;
+    min-inline-size: 0;
+}
+
+/* ---------- SERVICE HERO ---------- */
+
+body[data-page="service-detail"] .service-hero {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    inline-size: 100%;
+    max-inline-size: 100%;
+    min-block-size: 430px;
+
+    padding-block: clamp(3rem, 6vw, 5.5rem);
+    padding-inline: 0;
+
+    overflow: clip;
+}
+
+body[data-page="service-detail"] .service-hero .internal-hero__content {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.15fr) minmax(0, 0.85fr);
+
+    align-items: end;
+
+    inline-size: 100% !important;
+    max-inline-size: var(--container-wide, 1440px) !important;
+    min-inline-size: 0;
+
+    margin-inline: auto !important;
+    padding-inline: var(--page-gutter, 1.25rem) !important;
+
+    gap: clamp(2rem, 5vw, 6rem);
+}
+
+body[data-page="service-detail"] .service-hero .internal-hero__content>* {
+    inline-size: 100%;
+    max-inline-size: 100%;
+    min-inline-size: 0;
+}
+
+body[data-page="service-detail"] .service-hero h1 {
+    inline-size: 100% !important;
+    max-inline-size: 15ch !important;
+    margin: 0;
+
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 0.98;
+    letter-spacing: -0.05em;
+
+    white-space: normal;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+}
+
+body[data-page="service-detail"] .service-hero [data-service-summary] {
+    inline-size: 100%;
+    max-inline-size: 58ch;
+    margin: 0 0 1.5rem;
+}
+
+body[data-page="service-detail"] .service-hero .breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    inline-size: 100%;
+    max-inline-size: 100%;
+    min-inline-size: 0;
+
+    gap: 0.4rem 0.55rem;
+    margin-block-end: 1.25rem;
+
+    white-space: normal;
+}
+
+body[data-page="service-detail"] .service-hero .breadcrumb>* {
+    min-inline-size: 0;
+    max-inline-size: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+/* ---------- ALL SERVICE-PAGE GRIDS/CARDS ---------- */
+
+body[data-page="service-detail"] :is(.service-detail-overview,
+    .service-detail-scope,
+    .service-detail-concept,
+    .service-detail-stages,
+    .service-faq-cta,
+    .service-related-showcase__grid,
+    .service-split-showcase__grid,
+    .service-visual-panels__grid) {
+    inline-size: 100%;
+    max-inline-size: 100%;
+    min-inline-size: 0;
+}
+
+body[data-page="service-detail"] :is(.service-detail-scope__item,
+    .service-detail-concept__note,
+    .service-stage,
+    .service-related-card,
+    .service-related-showcase-card,
+    .service-split-showcase__media,
+    .service-split-showcase__content,
+    .service-visual-panel,
+    .service-visual-panel__link,
+    .service-visual-panel__content,
+    .v-accordion,
+    .v-accordion__item,
+    .v-accordion__button,
+    .site-photo-cta) {
+    max-inline-size: 100%;
+    min-inline-size: 0;
+}
+
+body[data-page="service-detail"] .service-related-carousel,
+body[data-page="service-detail"] .service-related-carousel>.v-container--wide,
+body[data-page="service-detail"] .service-related-carousel__swiper {
+    max-inline-size: 100%;
+    overflow-x: clip;
+}
+
+/*
+ * Do not constrain the Swiper wrapper itself.
+ * Swiper needs a wide transformed track.
+ */
+
+body[data-page="service-detail"] .service-related-carousel__swiper {
+    min-inline-size: 0;
+}
+
+/* ---------- TABLET / MINI TABLET ---------- */
+
+@media (max-width: 960px) {
+    body[data-page="service-detail"] {
+        --page-gutter: clamp(1rem, 3.8vw, 1.5rem);
+    }
+
+    body[data-page="service-detail"] .site-nav,
+    body[data-page="service-detail"] .site-header__cta {
+        display: none !important;
+    }
+
+    body[data-page="service-detail"] .site-header__inner {
+        grid-template-columns: minmax(0, 1fr) auto !important;
+        gap: 0.75rem;
+    }
+
+    body[data-page="service-detail"] .site-header__actions {
+        justify-self: end;
+        max-inline-size: max-content;
+    }
+
+    body[data-page="service-detail"] .site-logo,
+    body[data-page="service-detail"] .site-header__brand {
+        max-inline-size: calc(100vw - 88px);
+        overflow: hidden;
+    }
+
+    body[data-page="service-detail"] .site-logo__word {
+        max-inline-size: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    body[data-page="service-detail"] .service-hero {
+        min-block-size: 0;
+        padding-block: clamp(2.5rem, 7vw, 4rem);
+    }
+
+    body[data-page="service-detail"] .service-hero .internal-hero__content {
+        grid-template-columns: minmax(0, 1fr) !important;
+        align-items: start;
+        gap: 1.5rem;
+    }
+
+    body[data-page="service-detail"] .service-hero h1 {
+        max-inline-size: 100% !important;
+        font-size: clamp(2.4rem, 8vw, 3.9rem);
+        line-height: 1;
+    }
+
+    body[data-page="service-detail"] :is(.service-detail-overview,
+        .service-detail-scope,
+        .service-detail-concept,
+        .service-detail-stages,
+        .service-faq-cta,
+        .service-related-showcase__grid,
+        .service-split-showcase__grid) {
+        grid-template-columns: minmax(0, 1fr) !important;
+    }
+
+    body[data-page="service-detail"] .service-split-showcase__grid {
+        grid-template-areas:
+            "primary-image"
+            "primary-content"
+            "secondary-image"
+            "focus-content" !important;
+    }
+
+    body[data-page="service-detail"] .service-related-showcase-card,
+    body[data-page="service-detail"] .service-related-showcase-card--featured {
+        inline-size: 100%;
+        transform: none;
+    }
+
+    body[data-page="service-detail"] .service-detail-overview__aside,
+    body[data-page="service-detail"] .service-detail-stages__sticky,
+    body[data-page="service-detail"] .service-faq-cta__cta {
+        position: static !important;
+    }
+
+    /*
+     * Horizontal AOS movement creates scrollable overflow on narrow screens.
+     * Convert it to vertical movement only.
+     */
+
+    body[data-page="service-detail"] [data-aos="fade-left"],
+    body[data-page="service-detail"] [data-aos="fade-right"] {
+        transform: translate3d(0, 24px, 0) !important;
+    }
+
+    body[data-page="service-detail"] [data-aos="fade-left"].aos-animate,
+    body[data-page="service-detail"] [data-aos="fade-right"].aos-animate {
+        transform: none !important;
+    }
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 600px) {
+    body[data-page="service-detail"] {
+        --page-gutter: 1rem;
+    }
+
+    body[data-page="service-detail"] .service-hero {
+        padding-block: 2.25rem 2.75rem;
+    }
+
+    body[data-page="service-detail"] .service-hero h1 {
+        font-size: clamp(2rem, 10vw, 2.9rem);
+        letter-spacing: -0.04em;
+    }
+
+    body[data-page="service-detail"] .service-hero [data-service-summary] {
+        max-inline-size: 100%;
+        font-size: 0.94rem;
+        line-height: 1.65;
+    }
+
+    body[data-page="service-detail"] .service-hero .breadcrumb {
+        margin-block-end: 1rem;
+        padding: 0;
+        gap: 0.3rem 0.4rem;
+        font-size: 0.63rem;
+        line-height: 1.35;
+    }
+
+    body[data-page="service-detail"] .service-hero .v-button {
+        inline-size: 100%;
+        max-inline-size: 320px;
+        justify-content: center;
+    }
+
+    body[data-page="service-detail"] .mobile-menu__panel {
+        inline-size: 100% !important;
+    }
+
+    body[data-page="service-detail"] .service-split-showcase__content,
+    body[data-page="service-detail"] .service-related-showcase-card,
+    body[data-page="service-detail"] .service-detail-scope__item,
+    body[data-page="service-detail"] .service-stage,
+    body[data-page="service-detail"] .v-accordion__item {
+        inline-size: 100%;
+        max-inline-size: 100%;
+    }
+
+    body[data-page="service-detail"] .service-visual-panels__grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+        block-size: auto;
+    }
+
+    body[data-page="service-detail"] .service-visual-panel {
+        inline-size: 100%;
+        max-inline-size: 100%;
+    }
+
+    body[data-page="service-detail"] .service-visual-panel__content {
+        inline-size: 100%;
+        max-inline-size: 100%;
+        padding-inline: 1rem;
+    }
+}
