@@ -680,6 +680,26 @@
     color: rgba(244, 246, 242, .75)
 }
 
+.home-principles .v-section-head {
+    display: flex;
+    justify-content: center;
+    text-align: center
+}
+
+.home-principles .v-section-head>div {
+    display: grid;
+    justify-items: center
+}
+
+.home-principles .v-eyebrow {
+    justify-content: center
+}
+
+.home-principles .v-section-head h2 {
+    max-width: none;
+    white-space: nowrap
+}
+
 .home-principles__grid {
     display: grid;
     grid-template-columns: 1fr minmax(300px, 500px) 1fr;
@@ -1003,6 +1023,10 @@
     .home-principles__grid,
     .home-final__inner {
         grid-template-columns: 1fr
+    }
+
+    .home-principles .v-section-head h2 {
+        white-space: normal
     }
 
     .home-audience__panel img {
