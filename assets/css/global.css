@@ -124,17 +124,9 @@ main {
     z-index: 1
 }
 
-.site-photo-cta::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    background: linear-gradient(90deg, rgba(16, 32, 21, .92), rgba(16, 32, 21, .74) 42%, rgba(16, 32, 21, .45)), radial-gradient(circle at 78% 24%, rgba(165, 217, 120, .22), transparent 30%)
-}
+
 
 .site-photo-cta__media {
-    position: absolute !important;
     inset: -12%;
     z-index: 0;
     background: var(--cta-image, url('../images/home/card-8.jpg')) center/cover no-repeat;
