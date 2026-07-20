@@ -2199,3 +2199,93 @@
 }
 
 
+/* =========================================================
+   ABOUT — COLLABORATION TEASER
+========================================================= */
+
+.about-collaboration-teaser {
+    position: relative;
+    overflow: clip;
+    background: #f7f7f7;
+}
+
+.about-collaboration-teaser::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(760px, 70vw);
+    aspect-ratio: 1;
+    border: 1px solid rgba(118, 193, 116, 0.12);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.about-collaboration-teaser__frame {
+    position: relative;
+    width: min(1080px, 100%);
+    margin-inline: auto;
+    padding:
+        clamp(3rem, 7vw, 6rem) clamp(1.5rem, 7vw, 6rem);
+    border: 1px solid rgba(27, 41, 26, 0.2);
+    border-radius: clamp(1.5rem, 3vw, 3rem);
+    background: #ffffff;
+    text-align: center;
+    box-shadow: 0 30px 80px rgba(16, 32, 21, 0.08);
+}
+
+.about-collaboration-teaser__frame::before {
+    content: "";
+    display: block;
+    width: 66px;
+    height: 4px;
+    margin: 0 auto 1.8rem;
+    border-radius: 999px;
+    background: var(--color-accent, #db2f35);
+}
+
+.about-collaboration-teaser .v-eyebrow {
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: var(--color-forest, #1b291a);
+}
+
+.about-collaboration-teaser h2 {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    color: var(--color-forest-deep, #102015);
+    font-size: clamp(3rem, 5.5vw, 6rem);
+    line-height: 0.96;
+    letter-spacing: -0.06em;
+    text-wrap: balance;
+}
+
+.about-collaboration-teaser__frame>p:not(.v-eyebrow) {
+    width: min(880px, 100%);
+    margin: 1.7rem auto 0;
+    color: var(--color-text-muted, #667068);
+    font-size: clamp(0.98rem, 1.1vw, 1.08rem);
+    line-height: 1.85;
+}
+
+.about-collaboration-teaser .v-button {
+    margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+@media (max-width: 640px) {
+    .about-collaboration-teaser__frame {
+        padding: 3rem 1.25rem;
+        border-radius: 1.5rem;
+    }
+
+    .about-collaboration-teaser h2 {
+        font-size: clamp(2.7rem, 13vw, 4rem);
+    }
+
+    .about-collaboration-teaser .v-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
