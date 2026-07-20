@@ -404,7 +404,7 @@
 }
 
 .home-explorer {
-    overflow: hidden
+    overflow: visible
 }
 
 .home-explorer__grid {
@@ -536,7 +536,13 @@
     display: grid;
     grid-template-columns: 1.15fr .85fr;
     gap: clamp(2rem, 5vw, 5rem);
-    align-items: center
+    align-items: start
+}
+
+.home-audience__panel>div {
+    position: sticky;
+    top: calc(var(--header-height) + 24px);
+    align-self: start
 }
 
 .home-audience__panel[hidden] {
@@ -1027,6 +1033,10 @@
 
     .home-principles .v-section-head h2 {
         white-space: normal
+    }
+
+    .home-audience__panel>div {
+        position: static
     }
 
     .home-audience__panel img {
