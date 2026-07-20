@@ -39,7 +39,7 @@
     z-index: 2;
     padding: calc(var(--header-height) + 3.25rem) 0 clamp(3rem, 5vw, 4.5rem);
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 270px;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 390px);
     gap: 3rem;
     align-items: end
 }
@@ -60,10 +60,66 @@
 
 .home-hero__note {
     align-self: end;
-    padding: 1.25rem 0 0;
-    border-top: 1px solid var(--color-light-border);
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 118px;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid rgba(244, 246, 242, .24);
+    border-radius: 1.35rem;
+    background: linear-gradient(135deg, rgba(244, 246, 242, .2), rgba(118, 193, 116, .13));
+    box-shadow: 0 24px 70px rgba(5, 18, 10, .34), inset 0 1px 0 rgba(255, 255, 255, .18);
+    -webkit-backdrop-filter: blur(18px) saturate(1.1);
+    backdrop-filter: blur(18px) saturate(1.1);
     font-size: .8rem;
-    color: rgba(244, 246, 242, .68)
+    color: rgba(244, 246, 242, .88);
+    overflow: hidden
+}
+
+.home-hero__note::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 5px;
+    background: linear-gradient(180deg, var(--color-logo-light), var(--color-logo));
+    z-index: -1
+}
+
+.home-hero__note::after {
+    content: 'Design clarity';
+    position: absolute;
+    top: .75rem;
+    right: .9rem;
+    padding: .28rem .55rem;
+    border-radius: var(--radius-round);
+    background: rgba(16, 32, 21, .66);
+    color: var(--color-logo-light);
+    font-size: .62rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    line-height: 1;
+    text-transform: uppercase
+}
+
+.home-hero__note p {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.7;
+    text-wrap: balance
+}
+
+.home-hero__note img {
+    width: 118px;
+    aspect-ratio: 1.08;
+    height: auto;
+    border: 1px solid rgba(244, 246, 242, .26);
+    border-radius: 1rem;
+    object-fit: cover;
+    box-shadow: 0 14px 34px rgba(5, 18, 10, .26)
 }
 
 .home-hero .v-eyebrow {
