@@ -144,6 +144,27 @@
     gap: 1rem
 }
 
+.services-system-section__head {
+    justify-content: center;
+    text-align: center
+}
+
+.services-system-section__head>div {
+    width: 100%;
+    display: grid;
+    justify-items: center
+}
+
+.services-system-section__head .v-eyebrow {
+    justify-content: center
+}
+
+.services-system-section__head h2 {
+    width: 100%;
+    max-width: 980px;
+    margin-inline: auto
+}
+
 .services-system__item {
     padding: 2rem;
     border-top: 3px solid var(--color-logo);
@@ -475,4 +496,40 @@
         font-size: 0.98rem;
         line-height: 1.75;
     }
+}
+/* =========================================================
+   SERVICES SYSTEM — CENTERED FULL-WIDTH HEADING
+========================================================= */
+
+.services-system-section .v-section-head {
+    display: block;
+    width: 100%;
+    margin-bottom: clamp(2.8rem, 5vw, 4.8rem);
+    text-align: center;
+}
+
+.services-system-section .v-section-head>div {
+    width: 100%;
+    max-width: none;
+    margin-inline: auto;
+}
+
+.services-system-section .v-section-head .v-eyebrow {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 0.9rem;
+    text-align: center;
+}
+
+.services-system-section .v-section-head h2 {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    text-align: center;
+
+    font-size: clamp(3rem, 5vw, 5.7rem);
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+    text-wrap: balance;
 }
