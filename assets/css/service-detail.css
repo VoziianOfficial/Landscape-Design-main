@@ -219,7 +219,7 @@ body[data-page="service-detail"] .service-hero .internal-hero__content>div:nth-c
 }
 
 .service-stage-parallax {
-    --stage-image: url('../images/services/residential.webp');
+    --stage-image: url('../images/home/card-10.jpg');
     position: relative;
     isolation: isolate;
     overflow: clip;
@@ -228,31 +228,31 @@ body[data-page="service-detail"] .service-hero .internal-hero__content>div:nth-c
 }
 
 body[data-service-slug="commercial-landscape-design"] .service-stage-parallax {
-    --stage-image: url('../images/services/commercial.webp')
+    --stage-image: url('../images/home/card-23.jpg')
 }
 
 body[data-service-slug="front-yard-design"] .service-stage-parallax {
-    --stage-image: url('../images/services/front-yard.webp')
+    --stage-image: url('../images/home/card-14.jpg')
 }
 
 body[data-service-slug="backyard-design"] .service-stage-parallax {
-    --stage-image: url('../images/services/backyard.webp')
+    --stage-image: url('../images/home/card-6.jpg')
 }
 
 body[data-service-slug="garden-planting-plans"] .service-stage-parallax {
-    --stage-image: url('../images/services/planting-plan.webp')
+    --stage-image: url('../images/home/card-21.jpg')
 }
 
 body[data-service-slug="patio-walkway-design"] .service-stage-parallax {
-    --stage-image: url('../images/services/patio-walkway.webp')
+    --stage-image: url('../images/home/card-11.jpg')
 }
 
 body[data-service-slug="outdoor-lighting"] .service-stage-parallax {
-    --stage-image: url('../images/services/outdoor-lighting.webp')
+    --stage-image: url('../images/home/card-8.jpg')
 }
 
 body[data-service-slug="3d-landscape-visualization"] .service-stage-parallax {
-    --stage-image: url('../images/services/visualization-3d.webp')
+    --stage-image: url('../images/home/card-9.jpg')
 }
 
 .service-stage-parallax::before {

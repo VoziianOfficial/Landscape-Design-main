@@ -1112,7 +1112,7 @@ function renderServiceSplitShowcase(service) {
       "[data-service-split-secondary-image]"
     ),
     service.secondaryImage ||
-    "assets/images/home/planning-discussion.webp",
+    "assets/images/home/card-16.jpg",
     service.secondaryImageAlt ||
     `Planning discussion related to ${service.title}`
   );

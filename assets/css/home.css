@@ -855,7 +855,7 @@
 .home-parallax__media {
     position: absolute;
     inset: -8%;
-    background: url('../images/gallery/evening-terrace.webp') center/cover
+    background: url('../images/home/card-8.jpg') center/cover
 }
 
 .home-parallax::after {

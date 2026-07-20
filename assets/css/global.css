@@ -137,7 +137,7 @@ main {
     position: absolute !important;
     inset: -12%;
     z-index: 0;
-    background: var(--cta-image, url('../images/gallery/evening-terrace.webp')) center/cover no-repeat;
+    background: var(--cta-image, url('../images/home/card-8.jpg')) center/cover no-repeat;
     transform: scale(1.08);
     will-change: transform
 }
@@ -179,51 +179,51 @@ main {
 }
 
 body[data-page="about"] .site-photo-cta {
-    --cta-image: url('../images/home/planning-discussion.webp')
+    --cta-image: url('../images/home/card-19.jpg')
 }
 
 body[data-page="services"] .site-photo-cta {
-    --cta-image: url('../images/services/planting-plan.webp')
+    --cta-image: url('../images/home/card-9.jpg')
 }
 
 body[data-page="gallery"] .site-photo-cta {
-    --cta-image: url('../images/gallery/evening-terrace.webp')
+    --cta-image: url('../images/home/card-4.jpg')
 }
 
 body[data-page="contact"] .site-photo-cta {
-    --cta-image: url('../images/home/plan-2d.webp')
+    --cta-image: url('../images/home/card-12.jpg')
 }
 
 body[data-service-slug="residential-landscape-design"] .site-photo-cta {
-    --cta-image: url('../images/services/residential.webp')
+    --cta-image: url('../images/home/card-10.jpg')
 }
 
 body[data-service-slug="commercial-landscape-design"] .site-photo-cta {
-    --cta-image: url('../images/services/commercial.webp')
+    --cta-image: url('../images/home/card-23.jpg')
 }
 
 body[data-service-slug="front-yard-design"] .site-photo-cta {
-    --cta-image: url('../images/services/front-yard.webp')
+    --cta-image: url('../images/home/card-17.jpg')
 }
 
 body[data-service-slug="backyard-design"] .site-photo-cta {
-    --cta-image: url('../images/services/backyard.webp')
+    --cta-image: url('../images/home/card-8.jpg')
 }
 
 body[data-service-slug="garden-planting-plans"] .site-photo-cta {
-    --cta-image: url('../images/services/planting-plan.webp')
+    --cta-image: url('../images/home/card-22.jpg')
 }
 
 body[data-service-slug="patio-walkway-design"] .site-photo-cta {
-    --cta-image: url('../images/services/patio-walkway.webp')
+    --cta-image: url('../images/home/card-11.jpg')
 }
 
 body[data-service-slug="outdoor-lighting"] .site-photo-cta {
-    --cta-image: url('../images/services/outdoor-lighting.webp')
+    --cta-image: url('../images/home/card-6.jpg')
 }
 
 body[data-service-slug="3d-landscape-visualization"] .site-photo-cta {
-    --cta-image: url('../images/services/visualization-3d.webp')
+    --cta-image: url('../images/home/card-3.jpg')
 }
 
 h1,
@@ -328,7 +328,7 @@ p {
 }
 
 .internal-hero {
-    --hero-image: url('../images/services/planting-plan.webp');
+    --hero-image: url('../images/home/card-4.jpg');
     min-height: clamp(330px, 31vw, 460px);
     display: flex;
     align-items: center;
@@ -338,6 +338,54 @@ p {
     background: var(--color-hero);
     color: var(--color-light-text);
     overflow: hidden
+}
+
+body[data-page="about"] .internal-hero {
+    --hero-image: url('../images/home/card-19.jpg')
+}
+
+body[data-page="services"] .internal-hero {
+    --hero-image: url('../images/home/card-9.jpg')
+}
+
+body[data-page="gallery"] .internal-hero {
+    --hero-image: url('../images/home/card-4.jpg')
+}
+
+body[data-page="contact"] .internal-hero {
+    --hero-image: url('../images/home/card-12.jpg')
+}
+
+body[data-service-slug="residential-landscape-design"] .internal-hero {
+    --hero-image: url('../images/home/card-2.jpg')
+}
+
+body[data-service-slug="commercial-landscape-design"] .internal-hero {
+    --hero-image: url('../images/home/card-1.jpg')
+}
+
+body[data-service-slug="front-yard-design"] .internal-hero {
+    --hero-image: url('../images/home/card-5.jpg')
+}
+
+body[data-service-slug="backyard-design"] .internal-hero {
+    --hero-image: url('../images/home/card-3.jpg')
+}
+
+body[data-service-slug="garden-planting-plans"] .internal-hero {
+    --hero-image: url('../images/home/card-4.jpg')
+}
+
+body[data-service-slug="patio-walkway-design"] .internal-hero {
+    --hero-image: url('../images/home/card-6.jpg')
+}
+
+body[data-service-slug="outdoor-lighting"] .internal-hero {
+    --hero-image: url('../images/home/card-8.jpg')
+}
+
+body[data-service-slug="3d-landscape-visualization"] .internal-hero {
+    --hero-image: url('../images/home/card-9.jpg')
 }
 
 .internal-hero::before {
