@@ -6,6 +6,7 @@ async function init(){
   const config=await configReady;renderHeader(config);renderFooter(config);initMobileMenu();initCookieConsent(config);
   const page=document.body.dataset.page;
   if(page==='home'){const{initHome}=await import('./pages/home.js');initHome(config)}
+  if(page==='about'){const{initAbout}=await import('./pages/about.js');initAbout(config)}
   if(page==='service-detail'){const{initServicePage}=await import('./pages/service-page.js');initServicePage(config);initStickyStages()}
   if(page==='gallery'){const{initGallery}=await import('./pages/gallery.js');initGallery()}
   if(page==='contact'){const{initContact}=await import('./pages/contact.js');initContact(config)}

@@ -58,36 +58,84 @@
         </div>
       </div>
     </section>
-    <section class="v-section v-section--surface">
-      <div class="v-container">
-        <div class="v-section-head">
-          <div>
-            <p class="v-eyebrow">A clear role</p>
-            <h2>What Verdeon Is—and Is Not.</h2>
+
+
+    <section class="about-feedback v-section" id="about-feedback" data-about-feedback aria-labelledby="aboutFeedbackTitle"
+      hidden>
+      <div class="about-feedback__grid v-container--wide">
+    
+        <div class="about-feedback__visual" data-aos="fade-right">
+          <figure class="about-feedback__media">
+            <img src="assets/images/about/feedback-landscape.webp" width="900" height="1050" loading="lazy" decoding="async"
+              alt="Landscape professional working in a carefully planned garden" data-about-feedback-image>
+          </figure>
+    
+          <div class="about-feedback__badge">
+            <span class="about-feedback__badge-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M12 3.5 14.2 2l1.7 2.1 2.7.1.5 2.6 2.1 1.7-1.1 2.5 1.1 2.5-2.1 1.7-.5 2.6-2.7.1-1.7 2.1L12 18.5 9.8 20l-1.7-2.1-2.7-.1-.5-2.6-2.1-1.7L3.9 11 2.8 8.5l2.1-1.7.5-2.6 2.7-.1L9.8 2 12 3.5Z" />
+                <path d="m8.8 11.4 2 2 4.4-4.8" />
+              </svg>
+            </span>
+    
+            <strong data-about-feedback-badge-title>
+              Verified Feedback
+            </strong>
+    
+            <span data-about-feedback-badge-text>
+              Published only with permission
+            </span>
           </div>
         </div>
-        <div class="about-contrast">
-          <article>
-            <h3>Verdeon is</h3>
-            <ul>
-              <li>An independent information platform</li>
-              <li>A way to organize landscape planning requests</li>
-              <li>A place to compare possible design scopes</li>
-              <li>A provider-matching resource where available</li>
-            </ul>
-          </article>
-          <article>
-            <h3>Verdeon is not</h3>
-            <ul>
-              <li>A landscape contractor or construction company</li>
-              <li>An installation, planting, lighting, or maintenance crew</li>
-              <li>A guarantee of provider participation or availability</li>
-              <li>A substitute for licensed technical advice</li>
-            </ul>
-          </article>
+    
+        <div class="about-feedback__content">
+          <header class="about-feedback__head" data-aos="fade-up">
+            <p class="v-eyebrow" data-about-feedback-eyebrow>
+              Property Owner Feedback
+            </p>
+    
+            <h2 id="aboutFeedbackTitle" data-about-feedback-title>
+              What Property Owners Value About a Clearer Planning Process.
+            </h2>
+    
+            <p data-about-feedback-intro>
+              Real feedback can help explain which parts of the landscape planning
+              experience property owners find especially useful.
+            </p>
+          </header>
+    
+          <div class="about-feedback__swiper swiper" data-about-feedback-swiper aria-label="Verified Verdeon feedback">
+            <div class="swiper-wrapper" data-about-feedback-list></div>
+          </div>
+    
+          <div class="about-feedback__controls">
+            <div class="about-feedback__pagination" data-about-feedback-pagination></div>
+    
+            <div class="about-feedback__arrows">
+              <button class="about-feedback__arrow" type="button" data-about-feedback-prev aria-label="Previous feedback">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M19 12H5" />
+                  <path d="m12 5-7 7 7 7" />
+                </svg>
+              </button>
+    
+              <button class="about-feedback__arrow" type="button" data-about-feedback-next aria-label="Next feedback">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
+    
       </div>
     </section>
+
+
     <section class="v-section">
       <div class="v-container about-reason">
         <div class="about-reason__title">
