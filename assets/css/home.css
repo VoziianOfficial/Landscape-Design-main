@@ -1974,20 +1974,18 @@
         0 clamp(1.35rem, 2.5vw, 2rem) 1.7rem clamp(4.2rem, 6vw, 5.35rem);
 }
 
-/* Плюс и минус рисуем через CSS */
+/* Shared accordion icon is drawn with two CSS strokes. */
 
 .home-faq--editorial .v-accordion__icon {
     font-size: 0;
 }
 
 .home-faq--editorial .v-accordion__icon::before {
-    content: "+";
-    font-size: 1.45rem;
-    line-height: 1;
+    content: "";
 }
 
 .home-faq--editorial .home-faq__button[aria-expanded="true"] .v-accordion__icon::before {
-    content: "−";
+    content: "";
 }
 
 @media (max-width: 600px) {
@@ -1998,7 +1996,7 @@
     }
 
     .home-faq--editorial .v-accordion__icon::before {
-        font-size: 1.25rem;
+        content: "";
     }
 }
 
@@ -2006,6 +2004,32 @@
     .home-faq--editorial .home-faq__panel {
         transition: none;
     }
+}
+
+.home-faq .home-faq__grid {
+    align-items: center;
+}
+
+.home-faq__intro {
+    text-align: center;
+}
+
+.home-faq__intro .v-eyebrow,
+.home-faq--editorial .v-eyebrow {
+    justify-content: center;
+}
+
+.home-faq__intro h2,
+.home-faq__intro .v-copy,
+.home-faq__description {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home-faq__contact {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
 }
 
 /* =========================================================

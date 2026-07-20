@@ -147,7 +147,7 @@ function initHomeFaqAccordion() {
     );
 
     if (icon) {
-      icon.textContent = isOpen ? "−" : "+";
+      icon.textContent = "";
     }
   };
 
