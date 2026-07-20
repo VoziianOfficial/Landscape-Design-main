@@ -1,4 +1,5 @@
 const logoMarkup=`<svg viewBox="0 0 64 72" aria-hidden="true"><path fill="#A5D978" d="M30.8 64.7C16.4 58.2 8.2 45.5 10.7 31.8 13.3 17.8 24.8 8.3 35.8 3c4.4 13.7 4.7 26.2-1 37.2-2.7 5.2-4.9 10.9-4 24.5Z"/><path fill="#76C174" d="M31.1 65.1c-1.2-12.4 2.2-23.2 10.1-31.1 7.4-7.4 15.7-10.4 22.2-10.7.4 11.1-2.1 21.3-9.2 28.6-5.7 5.9-13.4 10.2-23.1 13.2Z"/><path fill="none" stroke="#F4F6F2" stroke-width="2.4" stroke-linecap="round" d="M30.8 65.2C29 48.6 29.6 28.9 35.8 3M31.3 64.7c7.4-14.8 17.6-29.1 32.1-41.4"/></svg>`;
+const navArrowMarkup=`<svg class="site-nav__dropdown-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg>`;
 const escapeHTML=value=>String(value).replace(/[&<>'"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
 
 export function renderHeader(config){
@@ -7,7 +8,7 @@ export function renderHeader(config){
   const services=config.services||[];
   const nav=(config.navigation||[]).map(item=>{
     const active=current===item.url||(item.dropdown&&services.some(service=>service.url===current));
-    if(item.dropdown)return `<div class="site-nav__item"><a class="site-nav__link site-nav__link--dropdown" href="${item.url}"${active?' aria-current="page"':''} aria-haspopup="true" aria-controls="services-menu">${escapeHTML(item.label)} <span class="site-nav__chevron" aria-hidden="true"></span></a><div id="services-menu" class="site-nav__dropdown">${services.map(service=>`<a href="${service.url}"${current===service.url?' aria-current="page"':''}>${escapeHTML(service.title)}</a>`).join('')}<a href="all-services.html">View all design options →</a></div></div>`;
+    if(item.dropdown)return `<div class="site-nav__item"><a class="site-nav__link site-nav__link--dropdown" href="${item.url}"${active?' aria-current="page"':''} aria-haspopup="true" aria-controls="services-menu">${escapeHTML(item.label)} <span class="site-nav__chevron" aria-hidden="true"></span></a><div id="services-menu" class="site-nav__dropdown">${services.map(service=>`<a href="${service.url}"${current===service.url?' aria-current="page"':''}>${escapeHTML(service.title)}</a>`).join('')}<a href="all-services.html">View all design options ${navArrowMarkup}</a></div></div>`;
     return `<a href="${item.url}"${active?' aria-current="page"':''}>${escapeHTML(item.label)}</a>`
   }).join('');
   const mobileLink=(url,label,isActive=current===url)=>`<a class="mobile-panel__link" href="${url}"${isActive?' aria-current="page"':''}>${escapeHTML(label)}</a>`;

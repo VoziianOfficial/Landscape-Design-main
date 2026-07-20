@@ -338,6 +338,17 @@
     transform: translate(1px, -1px)
 }
 
+.featured-service-card__action svg {
+    display: block;
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    stroke-linejoin: round
+}
+
 .featured-service-card__action:hover {
     transform: translate(.1rem, -.1rem);
     background: var(--color-logo)
@@ -495,6 +506,17 @@
 .home-explorer__button span:first-child {
     font: 600 .66rem var(--font-body);
     color: var(--color-logo-light)
+}
+
+.home-explorer__button-icon svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round
 }
 
 .home-explorer__button[aria-selected=true] {
