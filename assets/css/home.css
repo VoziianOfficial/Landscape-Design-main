@@ -1045,3 +1045,436 @@
         clip-path: ellipse(46% 50% at 50% 50%)
     }
 }
+
+
+/* =========================================================
+   HOME PLANNING STEPS
+========================================================= */
+
+.home-planning-steps {
+    position: relative;
+    padding: clamp(5.5rem, 9vw, 9rem) 0;
+    background:
+        linear-gradient(180deg,
+            var(--color-background) 0%,
+            #ffffff 52%,
+            var(--color-background) 100%);
+    color: var(--color-text);
+    overflow: clip;
+}
+
+.home-planning-steps__inner {
+    position: relative;
+}
+
+.home-planning-steps__corner {
+    position: absolute;
+    top: 1rem;
+    width: clamp(100px, 14vw, 220px);
+    height: 54px;
+    pointer-events: none;
+}
+
+.home-planning-steps__corner::before,
+.home-planning-steps__corner::after {
+    content: "";
+    position: absolute;
+    background: var(--color-logo);
+    opacity: 0.82;
+}
+
+.home-planning-steps__corner::before {
+    top: 0;
+    width: 100%;
+    height: 1px;
+}
+
+.home-planning-steps__corner::after {
+    top: 0;
+    width: 1px;
+    height: 100%;
+}
+
+.home-planning-steps__corner--left {
+    left: 0;
+}
+
+.home-planning-steps__corner--left::before,
+.home-planning-steps__corner--left::after {
+    left: 0;
+}
+
+.home-planning-steps__corner--right {
+    right: 0;
+}
+
+.home-planning-steps__corner--right::before,
+.home-planning-steps__corner--right::after {
+    right: 0;
+}
+
+.home-planning-steps__head {
+    width: min(1280px, 100%);
+    max-width: none;
+    margin: 0 auto clamp(4rem, 7vw, 6.5rem);
+    text-align: center;
+}
+
+.home-planning-steps__head h2 {
+    width: 100%;
+    max-width: none;
+    margin-inline: auto;
+}
+
+.home-planning-steps__head .v-eyebrow {
+    display: inline-flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: var(--color-forest);
+}
+
+
+
+.home-planning-steps__head h2 span {
+    color: var(--color-logo);
+}
+
+.home-planning-steps__head p {
+    max-width: 720px;
+    margin: 1.5rem auto 0;
+    color: var(--color-text-muted);
+    font-size: clamp(1rem, 1.15vw, 1.1rem);
+    line-height: 1.7;
+}
+
+.home-planning-steps__viewport {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+    scrollbar-width: none;
+}
+
+.home-planning-steps__viewport::-webkit-scrollbar {
+    display: none;
+}
+
+.home-planning-steps__track {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: clamp(0.75rem, 1.3vw, 1.5rem);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.home-planning-steps__track::before {
+    content: "";
+    position: absolute;
+    top: 58px;
+    left: 5.5%;
+    right: 5.5%;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(118, 193, 116, 0.4) 8%,
+            rgba(118, 193, 116, 0.4) 92%,
+            transparent);
+    pointer-events: none;
+}
+
+.home-planning-step {
+    position: relative;
+    min-width: 0;
+    padding: 0 clamp(0.25rem, 0.7vw, 0.7rem);
+    text-align: center;
+}
+
+.home-planning-step__visual {
+    position: relative;
+    width: 116px;
+    height: 116px;
+    margin: 0 auto 1.75rem;
+}
+
+.home-planning-step__icon {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 116px;
+    height: 116px;
+    border: 1px solid rgba(27, 41, 26, 0.1);
+    border-radius: 50%;
+    background: #ffffff;
+    color: var(--color-logo);
+    box-shadow:
+        0 18px 42px rgba(16, 32, 21, 0.06),
+        inset 0 0 0 8px rgba(118, 193, 116, 0.035);
+    transition:
+        background-color 280ms ease,
+        border-color 280ms ease,
+        color 280ms ease,
+        transform 280ms ease,
+        box-shadow 280ms ease;
+}
+
+.home-planning-step__icon svg {
+    width: 39px;
+    height: 39px;
+    stroke-width: 1.65;
+}
+
+.home-planning-step__number {
+    position: absolute;
+    z-index: 2;
+    top: -4px;
+    right: -2px;
+    display: grid;
+    place-items: center;
+    width: 31px;
+    height: 31px;
+    border: 4px solid var(--color-background);
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: #ffffff;
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    transition:
+        transform 280ms ease,
+        background-color 280ms ease;
+}
+
+.home-planning-step h3 {
+    min-height: 2.7em;
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 1.25vw, 1.18rem);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+}
+
+.home-planning-step p {
+    max-width: 19ch;
+    margin: 0.85rem auto 0;
+    color: var(--color-text-muted);
+    font-size: clamp(0.78rem, 0.85vw, 0.88rem);
+    line-height: 1.65;
+}
+
+.home-planning-step:hover .home-planning-step__icon,
+.home-planning-step:focus-within .home-planning-step__icon {
+    color: #ffffff;
+    background: var(--color-forest);
+    border-color: var(--color-forest);
+    transform: translateY(-7px);
+    box-shadow: 0 24px 50px rgba(16, 32, 21, 0.14);
+}
+
+.home-planning-step:hover .home-planning-step__number,
+.home-planning-step:focus-within .home-planning-step__number {
+    background: var(--color-accent);
+    transform: translate(2px, -3px) scale(1.06);
+}
+
+.home-planning-steps__controls {
+    display: none;
+    justify-content: center;
+    gap: 0.7rem;
+    margin-top: 3rem;
+}
+
+.home-planning-steps__arrow {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 1px solid var(--color-forest);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--color-forest);
+    transition:
+        color 220ms ease,
+        background-color 220ms ease,
+        border-color 220ms ease,
+        transform 220ms ease;
+}
+
+.home-planning-steps__arrow svg {
+    width: 19px;
+    height: 19px;
+    stroke-width: 1.8;
+}
+
+.home-planning-steps__arrow:hover {
+    color: #ffffff;
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+.home-planning-steps__arrow:focus-visible {
+    outline: 3px solid rgba(219, 47, 53, 0.22);
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   PLANNING STEPS — RESPONSIVE
+========================================================= */
+
+@media (max-width: 1399px) {
+    .home-planning-steps__viewport {
+        overflow-x: auto;
+        scroll-snap-type: x proximity;
+        scroll-behavior: smooth;
+        padding: 0 0.25rem 1rem;
+    }
+
+    .home-planning-steps__track {
+        width: max-content;
+        grid-template-columns: repeat(8, 190px);
+        gap: 1.25rem;
+    }
+
+    .home-planning-step {
+        scroll-snap-align: start;
+    }
+
+    .home-planning-steps__controls {
+        display: flex;
+    }
+}
+
+@media (max-width: 1023px) {
+    .home-planning-steps {
+        padding-block: clamp(5rem, 10vw, 7rem);
+    }
+
+    .home-planning-steps__corner {
+        width: 110px;
+        height: 40px;
+    }
+
+    .home-planning-steps__head {
+        margin-bottom: 4rem;
+    }
+
+    .home-planning-steps__track {
+        grid-template-columns: repeat(8, 210px);
+    }
+}
+
+@media (max-width: 767px) {
+    .home-planning-steps {
+        padding-block: 4.75rem;
+    }
+
+    .home-planning-steps__corner {
+        display: none;
+    }
+
+    .home-planning-steps__head {
+        width: 100%;
+        margin-bottom: 3.25rem;
+        text-align: left;
+    }
+
+    .home-planning-steps__head .v-eyebrow {
+        justify-content: flex-start;
+    }
+
+    .home-planning-steps__head h2 {
+        margin-inline: 0;
+        font-size: clamp(2.45rem, 11vw, 3.6rem);
+    }
+
+    .home-planning-steps__head p {
+        margin-left: 0;
+    }
+
+    .home-planning-steps__viewport {
+        margin-right: calc(var(--page-padding) * -1);
+        padding-right: var(--page-padding);
+    }
+
+    .home-planning-steps__track {
+        grid-template-columns: repeat(8, min(78vw, 250px));
+        gap: 1rem;
+    }
+
+    .home-planning-step {
+        padding: 0.25rem 1rem 1.5rem;
+        text-align: left;
+    }
+
+    .home-planning-step__visual {
+        width: 104px;
+        height: 104px;
+        margin: 0 0 1.5rem;
+    }
+
+    .home-planning-step__icon {
+        width: 104px;
+        height: 104px;
+    }
+
+    .home-planning-step h3 {
+        min-height: 0;
+        font-size: 1.25rem;
+    }
+
+    .home-planning-step p {
+        max-width: 29ch;
+        margin-left: 0;
+    }
+
+    .home-planning-steps__track::before {
+        display: none;
+    }
+
+    .home-planning-steps__controls {
+        justify-content: flex-start;
+        margin-top: 2rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-planning-steps__viewport {
+        scroll-behavior: auto;
+    }
+
+    .home-planning-step__icon,
+    .home-planning-step__number,
+    .home-planning-steps__arrow {
+        transition: none;
+    }
+}
+
+.home-planning-steps__arrow:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+    transform: none;
+}
+
+/* Wider planning section heading */
+.home-planning-steps .home-planning-steps__head {
+    width: min(1280px, 100%);
+    max-width: none;
+}
+
+.home-planning-steps .home-planning-steps__head h2 {
+    width: 100%;
+    max-width: none;
+    margin-inline: auto;
+}
+
+@media (min-width: 1200px) {
+    .home-planning-steps .home-planning-steps__head h2 {
+        white-space: nowrap;
+        font-size: clamp(3rem, 4.2vw, 4.8rem);
+    }
+}
