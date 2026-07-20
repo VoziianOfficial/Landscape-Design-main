@@ -49,6 +49,7 @@ export function initServicePage(config) {
   renderServiceDeliverables(service);
   renderServiceFaq(service);
   renderServiceSplitShowcase(service);
+  renderServiceVisualPanels(service);
 
   /*
    * Новая универсальная секция.
@@ -1225,4 +1226,291 @@ function renderServiceSplitFocusList(
       return item;
     })
   );
+}
+
+/* =========================================================
+   SERVICE VISUAL PANELS
+========================================================= */
+
+function renderServiceVisualPanels(service) {
+  const section = document.querySelector(
+    "[data-service-visual-panels]"
+  );
+
+  if (!section || !service) {
+    return;
+  }
+
+  const container = section.querySelector(
+    "[data-service-visual-panels-list]"
+  );
+
+  if (!container) {
+    section.hidden = true;
+    return;
+  }
+
+  const panels = getServiceVisualPanels(service);
+
+  if (panels.length === 0) {
+    section.hidden = true;
+    return;
+  }
+
+  container.replaceChildren(
+    ...panels.map((panel, index) => {
+      return createServiceVisualPanel(
+        panel,
+        service,
+        index
+      );
+    })
+  );
+
+  section.hidden = false;
+
+  requestAnimationFrame(() => {
+    window.AOS?.refreshHard?.();
+  });
+}
+
+
+/* =========================================================
+   PANEL DATA
+========================================================= */
+
+function getServiceVisualPanels(service) {
+  /*
+   * Приоритет — уникальный массив featurePanels
+   * из config текущего сервиса.
+   */
+  if (
+    Array.isArray(service.featurePanels) &&
+    service.featurePanels.length > 0
+  ) {
+    return service.featurePanels
+      .filter((panel) => panel?.title)
+      .slice(0, 3);
+  }
+
+  /*
+   * Автоматический fallback из уже существующих
+   * данных сервиса.
+   */
+  const scope = Array.isArray(service.scope)
+    ? service.scope
+    : [];
+
+  const primaryImage =
+    service.image || "";
+
+  const secondaryImage =
+    service.secondaryImage ||
+    service.image ||
+    "";
+
+  const tertiaryImage =
+    service.tertiaryImage ||
+    service.secondaryImage ||
+    service.image ||
+    "";
+
+  return [
+    {
+      title:
+        scope[0] ||
+        "Project Priorities",
+
+      text:
+        "Clarify the most important spatial, visual, and practical questions connected to this landscape planning direction.",
+
+      image:
+        primaryImage,
+
+      imageAlt:
+        service.imageAlt ||
+        service.title,
+
+      href:
+        "contact.html#collaborate"
+    },
+
+    {
+      title:
+        scope[1] ||
+        "Layout & Relationships",
+
+      text:
+        "Explore how movement, planting, usable areas, materials, and surrounding property conditions may work together.",
+
+      image:
+        secondaryImage,
+
+      imageAlt:
+        service.secondaryImageAlt ||
+        `Planning considerations for ${service.title}`,
+
+      href:
+        "contact.html#collaborate"
+    },
+
+    {
+      title:
+        scope[2] ||
+        "Planning Direction",
+
+      text:
+        "Organize clearer information before comparing possibilities, discussing professional options, or moving toward implementation.",
+
+      image:
+        tertiaryImage,
+
+      imageAlt:
+        service.tertiaryImageAlt ||
+        `Landscape planning direction for ${service.title}`,
+
+      href:
+        "contact.html#collaborate"
+    }
+  ].filter((panel) => panel.image);
+}
+
+
+/* =========================================================
+   CREATE PANEL
+========================================================= */
+
+function createServiceVisualPanel(
+  panel,
+  service,
+  index
+) {
+  const article = document.createElement(
+    "article"
+  );
+
+  article.className =
+    "service-visual-panel";
+
+  article.setAttribute(
+    "data-aos",
+    "fade-up"
+  );
+
+  article.setAttribute(
+    "data-aos-delay",
+    String(index * 80)
+  );
+
+  const link = document.createElement("a");
+
+  link.className =
+    "service-visual-panel__link";
+
+  link.href =
+    panel.href ||
+    "contact.html#collaborate";
+
+  link.setAttribute(
+    "aria-label",
+    `${panel.title} — ${service.title}`
+  );
+
+  const image = document.createElement("img");
+
+  image.className =
+    "service-visual-panel__image";
+
+  image.src =
+    panel.image;
+
+  image.alt =
+    panel.imageAlt ||
+    panel.title ||
+    service.title;
+
+  image.width = 900;
+  image.height = 900;
+  image.loading = "lazy";
+  image.decoding = "async";
+
+  const overlay = document.createElement(
+    "span"
+  );
+
+  overlay.className =
+    "service-visual-panel__overlay";
+
+  overlay.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  const content = document.createElement(
+    "div"
+  );
+
+  content.className =
+    "service-visual-panel__content";
+
+  const number = document.createElement(
+    "span"
+  );
+
+  number.className =
+    "service-visual-panel__number";
+
+  number.textContent =
+    String(index + 1).padStart(2, "0");
+
+  const title = document.createElement("h2");
+
+  title.textContent =
+    panel.title;
+
+  const text = document.createElement("p");
+
+  text.textContent =
+    panel.text ||
+    "Explore this part of the landscape planning process.";
+
+  const action = document.createElement(
+    "span"
+  );
+
+  action.className =
+    "service-visual-panel__action";
+
+  action.innerHTML = `
+    <span>Explore Direction</span>
+
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M5 12h14"></path>
+      <path d="m13 6 6 6-6 6"></path>
+    </svg>
+  `;
+
+  content.append(
+    number,
+    title,
+    text,
+    action
+  );
+
+  link.append(
+    image,
+    overlay,
+    content
+  );
+
+  article.append(link);
+
+  return article;
 }
