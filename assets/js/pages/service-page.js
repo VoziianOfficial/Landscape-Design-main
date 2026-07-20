@@ -51,11 +51,11 @@ export function initServicePage(config) {
   renderServiceSplitShowcase(service);
   renderServiceVisualPanels(service);
 
-  /*
-   * Новая универсальная секция.
-   * Показывает все остальные сервисы,
-   * но связанные сервисы ставит первыми.
-   */
+
+
+
+
+
   renderRelatedServiceCarousel(
     services,
     service
@@ -64,9 +64,9 @@ export function initServicePage(config) {
 
 
 
-/* =========================================================
-   BASIC SERVICE CONTENT
-========================================================= */
+
+
+
 
 function renderServiceBasics(service) {
   document
@@ -101,9 +101,9 @@ function renderServiceBasics(service) {
 }
 
 
-/* =========================================================
-   SCOPE
-========================================================= */
+
+
+
 
 function renderServiceScope(service) {
   const container = document.querySelector(
@@ -134,9 +134,9 @@ function renderServiceScope(service) {
 }
 
 
-/* =========================================================
-   STAGES
-========================================================= */
+
+
+
 
 function renderServiceStages(service) {
   const container = document.querySelector(
@@ -177,9 +177,9 @@ function renderServiceStages(service) {
 }
 
 
-/* =========================================================
-   DELIVERABLES
-========================================================= */
+
+
+
 
 function renderServiceDeliverables(service) {
   const container = document.querySelector(
@@ -238,9 +238,9 @@ function renderServiceDeliverables(service) {
 }
 
 
-/* =========================================================
-   FAQ
-========================================================= */
+
+
+
 
 function renderServiceFaq(service) {
   const container = document.querySelector(
@@ -299,9 +299,9 @@ function renderServiceFaq(service) {
 }
 
 
-/* =========================================================
-   RELATED SERVICE CAROUSEL
-========================================================= */
+
+
+
 
 function renderRelatedServiceCarousel(
   services,
@@ -354,9 +354,9 @@ function renderRelatedServiceCarousel(
 }
 
 
-/* =========================================================
-   RELATED ORDER
-========================================================= */
+
+
+
 
 function getOrderedRelatedServices(
   services,
@@ -382,10 +382,10 @@ function getOrderedRelatedServices(
     addedSlugs.add(service.slug);
   };
 
-  /*
-   * Сначала добавляем сервисы,
-   * указанные в currentService.related.
-   */
+
+
+
+
   const relatedSlugs = Array.isArray(
     currentService.related
   )
@@ -400,20 +400,20 @@ function getOrderedRelatedServices(
     addService(service);
   });
 
-  /*
-   * Потом добавляем все оставшиеся сервисы.
-   * В итоге в слайдере будет 7 сервисов,
-   * а не только 3.
-   */
+
+
+
+
+
   services.forEach(addService);
 
   return result;
 }
 
 
-/* =========================================================
-   CREATE RELATED SLIDE
-========================================================= */
+
+
+
 
 function createRelatedServiceSlide(service) {
   const article = document.createElement(
@@ -477,9 +477,9 @@ function createRelatedServiceSlide(service) {
 }
 
 
-/* =========================================================
-   RELATED SWIPER
-========================================================= */
+
+
+
 
 function initRelatedServiceSwiper(
   section,
@@ -501,9 +501,9 @@ function initRelatedServiceSwiper(
     return;
   }
 
-  /*
-   * Защита от повторной инициализации.
-   */
+
+
+
   if (slider.swiper) {
     slider.swiper.update();
     return;
@@ -553,9 +553,9 @@ function initRelatedServiceSwiper(
 }
 
 
-/* =========================================================
-   SERVICE ICONS
-========================================================= */
+
+
+
 
 function getServiceIconMarkup(slug) {
   const icons = {
@@ -702,9 +702,9 @@ function getServiceIconMarkup(slug) {
   `;
 }
 
-/* =========================================================
-   RELATED SERVICE SHOWCASE
-========================================================= */
+
+
+
 
 function renderServiceRelatedShowcase(
   services,
@@ -755,9 +755,9 @@ function renderServiceRelatedShowcase(
 }
 
 
-/* =========================================================
-   RELATED SERVICE SELECTION
-========================================================= */
+
+
+
 
 function getShowcaseServices(
   services,
@@ -790,9 +790,9 @@ function getShowcaseServices(
     ? currentService.related
     : [];
 
-  /*
-   * Сначала берём три направления из related.
-   */
+
+
+
   relatedSlugs.forEach((slug) => {
     const relatedService = services.find(
       (service) => service.slug === slug
@@ -801,10 +801,10 @@ function getShowcaseServices(
     addService(relatedService);
   });
 
-  /*
-   * Подстраховка, если related содержит
-   * меньше трёх существующих сервисов.
-   */
+
+
+
+
   services.forEach((service) => {
     if (selected.length < limit) {
       addService(service);
@@ -815,9 +815,9 @@ function getShowcaseServices(
 }
 
 
-/* =========================================================
-   CREATE CARD
-========================================================= */
+
+
+
 
 function createRelatedShowcaseCard(
   service,
@@ -900,9 +900,9 @@ function createRelatedShowcaseCard(
 }
 
 
-/* =========================================================
-   ICONS
-========================================================= */
+
+
+
 
 function getRelatedShowcaseIcon(slug) {
   const icons = {
@@ -1049,9 +1049,9 @@ function getRelatedShowcaseIcon(slug) {
   `;
 }
 
-/* =========================================================
-   SERVICE SPLIT SHOWCASE
-========================================================= */
+
+
+
 
 function renderServiceSplitShowcase(service) {
   const section = document.querySelector(
@@ -1100,13 +1100,13 @@ function renderServiceSplitShowcase(service) {
     service.imageAlt || service.title
   );
 
-  /*
-   * Можно добавить отдельное secondaryImage
-   * в config каждого сервиса.
-   *
-   * Пока используется универсальное фото
-   * процесса планирования.
-   */
+
+
+
+
+
+
+
   renderServiceSplitImage(
     section.querySelector(
       "[data-service-split-secondary-image]"
@@ -1130,9 +1130,9 @@ function renderServiceSplitShowcase(service) {
 }
 
 
-/* =========================================================
-   TEXT
-========================================================= */
+
+
+
 
 function setServiceSplitText(
   section,
@@ -1151,9 +1151,9 @@ function setServiceSplitText(
 }
 
 
-/* =========================================================
-   IMAGES
-========================================================= */
+
+
+
 
 function renderServiceSplitImage(
   image,
@@ -1169,9 +1169,9 @@ function renderServiceSplitImage(
 }
 
 
-/* =========================================================
-   FOCUS LIST
-========================================================= */
+
+
+
 
 function renderServiceSplitFocusList(
   section,
@@ -1228,9 +1228,9 @@ function renderServiceSplitFocusList(
   );
 }
 
-/* =========================================================
-   SERVICE VISUAL PANELS
-========================================================= */
+
+
+
 
 function renderServiceVisualPanels(service) {
   const section = document.querySelector(
@@ -1275,15 +1275,15 @@ function renderServiceVisualPanels(service) {
 }
 
 
-/* =========================================================
-   PANEL DATA
-========================================================= */
+
+
+
 
 function getServiceVisualPanels(service) {
-  /*
-   * Приоритет — уникальный массив featurePanels
-   * из config текущего сервиса.
-   */
+
+
+
+
   if (
     Array.isArray(service.featurePanels) &&
     service.featurePanels.length > 0
@@ -1293,10 +1293,10 @@ function getServiceVisualPanels(service) {
       .slice(0, 3);
   }
 
-  /*
-   * Автоматический fallback из уже существующих
-   * данных сервиса.
-   */
+
+
+
+
   const scope = Array.isArray(service.scope)
     ? service.scope
     : [];
@@ -1376,9 +1376,9 @@ function getServiceVisualPanels(service) {
 }
 
 
-/* =========================================================
-   CREATE PANEL
-========================================================= */
+
+
+
 
 function createServiceVisualPanel(
   panel,

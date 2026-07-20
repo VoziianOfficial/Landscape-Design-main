@@ -371,9 +371,9 @@
 }
 
 
-/* =========================================================
-   SERVICES INTRODUCTION
-========================================================= */
+
+
+
 
 .services-introduction {
     position: relative;
@@ -386,7 +386,7 @@
 }
 
 
-/* Heading */
+
 
 .services-introduction__head {
     width: min(1180px, 100%);
@@ -413,7 +413,7 @@
 }
 
 
-/* Two-column text */
+
 
 .services-introduction__columns {
     display: grid;
@@ -437,16 +437,16 @@
 }
 
 
-/* Optional first-letter accent */
+
 
 .services-introduction__column:first-child p::first-letter {
     color: var(--color-forest-deep, #102015);
 }
 
 
-/* =========================================================
-   TABLET
-========================================================= */
+
+
+
 
 @media (max-width: 900px) {
     .services-introduction .v-container--wide {
@@ -463,9 +463,9 @@
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+
+
+
 
 @media (max-width: 680px) {
     .services-introduction .v-container--wide {
@@ -497,9 +497,9 @@
         line-height: 1.75;
     }
 }
-/* =========================================================
-   SERVICES SYSTEM — CENTERED FULL-WIDTH HEADING
-========================================================= */
+
+
+
 
 .services-system-section .v-section-head {
     display: block;

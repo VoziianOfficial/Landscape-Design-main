@@ -100,10 +100,10 @@ function initAboutFeedback(config) {
     image.alt = feedback.imageAlt || "";
   }
 
-  /*
-   * Создаём реальные swiper-slide из config.
-   * Без этой строки wrapper остаётся пустым.
-   */
+
+
+
+
   list.replaceChildren(
     ...items.map((item) => {
       return createFeedbackSlide(item);
@@ -269,10 +269,10 @@ function initAboutFeedbackSwiper(
     return;
   }
 
-  /*
-   * Swiper мог быть инициализирован
-   * другим глобальным скриптом.
-   */
+
+
+
+
   if (slider.swiper) {
     slider.swiper.update();
     return;

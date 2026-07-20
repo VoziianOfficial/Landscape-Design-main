@@ -1153,9 +1153,9 @@
 }
 
 
-/* =========================================================
-   HOME PLANNING STEPS
-========================================================= */
+
+
+
 
 .home-planning-steps {
     position: relative;
@@ -1427,9 +1427,9 @@
 }
 
 
-/* =========================================================
-   PLANNING STEPS — RESPONSIVE
-========================================================= */
+
+
+
 
 @media (max-width: 1399px) {
     .home-planning-steps__viewport {
@@ -1566,7 +1566,7 @@
     transform: none;
 }
 
-/* Wider planning section heading */
+
 .home-planning-steps .home-planning-steps__head {
     width: min(1280px, 100%);
     max-width: none;
@@ -1584,9 +1584,9 @@
         font-size: clamp(3rem, 4.2vw, 4.8rem);
     }
 }
-/* =========================================================
-   HOME FAQ — EDITORIAL REFERENCE
-========================================================= */
+
+
+
 
 .home-faq--editorial {
     position: relative;
@@ -1631,7 +1631,7 @@
 }
 
 
-/* Contact panel */
+
 
 .home-faq__contact {
     width: min(100%, 590px);
@@ -1723,7 +1723,7 @@
 }
 
 
-/* Accordion */
+
 
 .home-faq__accordion {
     display: grid;
@@ -1812,7 +1812,7 @@
 }
 
 
-/* Open accordion state */
+
 
 .home-faq--editorial .home-faq__item:has(.home-faq__button[aria-expanded="true"]),
 .home-faq--editorial .home-faq__item.is-open {
@@ -1836,9 +1836,9 @@
 }
 
 
-/* =========================================================
-   HOME FAQ — TABLET
-========================================================= */
+
+
+
 
 @media (max-width: 1100px) {
     .home-faq--editorial .home-faq__grid {
@@ -1857,9 +1857,9 @@
 }
 
 
-/* =========================================================
-   HOME FAQ — MOBILE
-========================================================= */
+
+
+
 
 @media (max-width: 900px) {
     .home-faq--editorial .home-faq__grid {
@@ -1941,9 +1941,9 @@
         line-height: 1.65;
     }
 }
-/* =========================================================
-   HOME FAQ — COLLAPSE BEHAVIOR
-========================================================= */
+
+
+
 
 .home-faq--editorial .home-faq__panel {
     display: grid;
@@ -1962,7 +1962,7 @@
     overflow: hidden;
 }
 
-/* Открытая карточка */
+
 
 .home-faq--editorial .home-faq__item.is-open .home-faq__panel,
 .home-faq--editorial .home-faq__item:has(.home-faq__button[aria-expanded="true"]) .home-faq__panel {
@@ -1975,14 +1975,14 @@
         visibility 0s;
 }
 
-/* Закрытая карточка — без внутренних отступов */
+
 
 .home-faq--editorial .home-faq__item:not(.is-open) .home-faq__panel>div {
     padding-top: 0;
     padding-bottom: 0;
 }
 
-/* Открытая карточка — возвращаем отступы */
+
 
 .home-faq--editorial .home-faq__item.is-open .home-faq__panel>div,
 .home-faq--editorial .home-faq__item:has(.home-faq__button[aria-expanded="true"]) .home-faq__panel>div {
@@ -1990,7 +1990,7 @@
         0 clamp(1.35rem, 2.5vw, 2rem) 1.7rem clamp(4.2rem, 6vw, 5.35rem);
 }
 
-/* Shared accordion icon is drawn with two CSS strokes. */
+
 
 .home-faq--editorial .v-accordion__icon {
     font-size: 0;
@@ -2048,9 +2048,9 @@
     text-align: left;
 }
 
-/* =========================================================
-   HOME BENEFITS
-========================================================= */
+
+
+
 
 .home-benefits {
     position: relative;
@@ -2185,9 +2185,9 @@
 }
 
 
-/* =========================================================
-   HOME BENEFITS — TABLET
-========================================================= */
+
+
+
 
 @media (max-width: 1023px) {
     .home-benefits__grid {
@@ -2200,9 +2200,9 @@
 }
 
 
-/* =========================================================
-   HOME BENEFITS — MOBILE
-========================================================= */
+
+
+
 
 @media (max-width: 640px) {
     .home-benefits__head {
@@ -2267,9 +2267,9 @@
     }
 }
 
-/* =========================================================
-   HOME SERVICE STACK
-========================================================= */
+
+
+
 
 .home-service-stack {
     position: relative;
@@ -2491,7 +2491,7 @@
 }
 
 
-/* Controls */
+
 
 .home-service-stack__controls {
     position: absolute;
@@ -2564,9 +2564,9 @@
 }
 
 
-/* =========================================================
-   HOME SERVICE STACK — TABLET
-========================================================= */
+
+
+
 
 @media (max-width: 1100px) {
     .home-service-stack__stage {
@@ -2585,9 +2585,9 @@
 }
 
 
-/* =========================================================
-   HOME SERVICE STACK — MOBILE / SMALL TABLET
-========================================================= */
+
+
+
 
 @media (max-width: 767px) {
     .home-service-stack__head {
@@ -2735,9 +2735,9 @@
     }
 }
 
-/* =========================================================
-   HOME SERVICE STACK — CONTAINER FIX
-========================================================= */
+
+
+
 
 .home-service-stack__stage {
     width: min(1240px, 100%);
@@ -2798,7 +2798,7 @@
     max-width: 44ch;
 }
 
-/* Кнопка больше не выходит за пределы Swiper */
+
 
 .home-service-stack__link {
     right: 18px;
@@ -2807,7 +2807,7 @@
     border-width: 6px;
 }
 
-/* Управление остаётся внутри общей секции */
+
 
 .home-service-stack__controls {
     right: 8px;

@@ -1,6 +1,6 @@
-/* =========================================================
-   OLD VALUES CURRENTLY HARDCODED IN HTML
-========================================================= */
+
+
+
 
 const OLD_SITE = Object.freeze({
   brandName: "Verdeon",
@@ -12,9 +12,9 @@ const OLD_SITE = Object.freeze({
 });
 
 
-/* =========================================================
-   FALLBACK
-========================================================= */
+
+
+
 
 const fallback = {
   siteIdentity: {
@@ -82,9 +82,9 @@ const fallback = {
 };
 
 
-/* =========================================================
-   LOAD SITE.JSON
-========================================================= */
+
+
+
 
 const CONFIG_URL = new URL(
   "../../config/site.json",
@@ -117,9 +117,9 @@ async function loadConfig() {
 }
 
 
-/* =========================================================
-   NORMALIZE
-========================================================= */
+
+
+
 
 function firstText(...values) {
   const value = values.find((item) => {
@@ -299,9 +299,9 @@ function normalizeConfig(raw = {}) {
 }
 
 
-/* =========================================================
-   HELPERS
-========================================================= */
+
+
+
 
 function readPath(object, path) {
   if (!object || !path) {
@@ -461,9 +461,9 @@ function replaceConfigStrings(value, pairs) {
 }
 
 
-/* =========================================================
-   NORMAL DATA-CONFIG ELEMENTS
-========================================================= */
+
+
+
 
 export function applyConfig(
   config,
@@ -485,10 +485,10 @@ export function applyConfig(
       return;
     }
 
-    /*
-     * Не разрушаем вложенную разметку.
-     * Меняем только простые текстовые элементы.
-     */
+
+
+
+
     if (node.children.length === 0) {
       node.textContent = String(value);
     }
@@ -552,12 +552,12 @@ export function applyConfig(
 }
 
 
-/* =========================================================
-   SAFE TEXT REPLACEMENT
 
-   Меняет только текстовые узлы.
-   HTML-элементы, секции и вложенная разметка не удаляются.
-========================================================= */
+
+
+
+
+
 
 function replacePageText(root, pairs) {
   const startNode =
@@ -626,9 +626,9 @@ function replacePageText(root, pairs) {
 }
 
 
-/* =========================================================
-   SAFE ATTRIBUTE REPLACEMENT
-========================================================= */
+
+
+
 
 function replacePageAttributes(root, pairs) {
   const selector = [
@@ -673,9 +673,9 @@ function replacePageAttributes(root, pairs) {
 }
 
 
-/* =========================================================
-   CONTACT LINKS
-========================================================= */
+
+
+
 
 function updateContactLinks(config, root) {
   findElements(
@@ -744,9 +744,9 @@ function updateContactLinks(config, root) {
 }
 
 
-/* =========================================================
-   JSON-LD
-========================================================= */
+
+
+
 
 function updateJsonLd(pairs) {
   document
@@ -762,9 +762,9 @@ function updateJsonLd(pairs) {
 }
 
 
-/* =========================================================
-   FINAL SAFE UPDATE
-========================================================= */
+
+
+
 
 export function applySiteIdentity(
   config,
@@ -791,11 +791,11 @@ export function applySiteIdentity(
 }
 
 
-/* =========================================================
-   CONFIG READY
 
-   Никакого MutationObserver здесь больше нет.
-========================================================= */
+
+
+
+
 
 export const configReady =
   loadConfig().then((config) => {

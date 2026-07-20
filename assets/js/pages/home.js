@@ -161,14 +161,14 @@ function initHomeFaqAccordion() {
       const wasOpen =
         button.getAttribute("aria-expanded") === "true";
 
-      // Закрываем остальные карточки.
+
       buttons.forEach((otherButton) => {
         if (otherButton !== button) {
           setItemState(otherButton, false);
         }
       });
 
-      // Текущую открываем или закрываем.
+
       setItemState(button, !wasOpen);
     });
 
@@ -222,8 +222,8 @@ function initPlanningSteps() {
     return;
   }
 
-  // Не добавляем обработчики повторно,
-  // если initHome случайно будет вызван ещё раз.
+
+
   if (viewport.dataset.planningStepsInitialized === "true") {
     return;
   }

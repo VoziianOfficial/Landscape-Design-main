@@ -50,18 +50,18 @@ async function init() {
   try {
     const config = await configReady;
 
-    /*
-     * Сначала создаём header и footer.
-     */
+
+
+
     renderHeader(config);
     renderFooter(config);
 
     initMobileMenu();
     initCookieConsent(config);
 
-    /*
-     * Потом создаём динамический контент страницы.
-     */
+
+
+
     const page =
       document.body.dataset.page;
 
@@ -105,19 +105,19 @@ async function init() {
       initContact(config);
     }
 
-    /*
-     * Один безопасный проход.
-     * Никаких повторных observer и requestAnimationFrame.
-     */
+
+
+
+
     applySiteIdentity(
       config,
       document
     );
 
-    /*
-     * Инициализируем компоненты только после
-     * завершения генерации контента.
-     */
+
+
+
+
     initAccordions();
     initTabs();
     initSwipers();

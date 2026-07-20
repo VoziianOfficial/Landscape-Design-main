@@ -1,6 +1,6 @@
-/* =========================================================
-   SERVICE DETAIL HERO + FIXED HEADER
-========================================================= */
+
+
+
 
 body[data-page="service-detail"] .site-header {
     position: fixed;
@@ -450,9 +450,9 @@ body[data-service-slug="3d-landscape-visualization"] .service-stage-parallax {
     }
 }
 
-/* =========================================================
-   RELATED SERVICE CAROUSEL
-========================================================= */
+
+
+
 
 .service-related-carousel {
     position: relative;
@@ -489,9 +489,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   HEADER
-========================================================= */
+
+
+
 
 .service-related-carousel__head {
     width: min(1080px, 100%);
@@ -533,9 +533,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   SWIPER
-========================================================= */
+
+
+
 
 .service-related-carousel__swiper {
     width: min(1380px, 100%);
@@ -556,9 +556,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   CARD
-========================================================= */
+
+
+
 
 .service-related-card {
     display: flex;
@@ -685,16 +685,16 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* Make descriptions equal height before buttons */
+
 
 .service-related-card p {
     min-height: 5.1em;
 }
 
 
-/* =========================================================
-   CONTROLS
-========================================================= */
+
+
+
 
 .service-related-carousel__controls {
     display: flex;
@@ -746,9 +746,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   NO SWIPER FALLBACK
-========================================================= */
+
+
+
 
 .service-related-carousel--static .service-related-carousel__swiper {
     overflow: visible;
@@ -769,9 +769,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   TABLET
-========================================================= */
+
+
+
 
 @media (max-width: 980px) {
 
@@ -790,9 +790,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+
+
+
 
 @media (max-width: 640px) {
 
@@ -838,9 +838,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
+
+
+
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -857,9 +857,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
     }
 }
 
-/* =========================================================
-   RELATED SERVICE SHOWCASE
-========================================================= */
+
+
+
 
 .service-related-showcase {
     position: relative;
@@ -875,7 +875,7 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* Lower angled background */
+
 
 .service-related-showcase::before {
     content: "";
@@ -915,9 +915,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   HEADER
-========================================================= */
+
+
+
 
 .service-related-showcase__head {
     width: min(1240px, 100%);
@@ -975,9 +975,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   GRID
-========================================================= */
+
+
+
 
 .service-related-showcase__grid {
     display: grid;
@@ -992,9 +992,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   CARDS
-========================================================= */
+
+
+
 
 .service-related-showcase-card {
     position: relative;
@@ -1049,9 +1049,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   ICON
-========================================================= */
+
+
+
 
 .service-related-showcase-card__icon {
     display: grid;
@@ -1110,9 +1110,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   CONTENT
-========================================================= */
+
+
+
 
 .service-related-showcase-card h3 {
     width: 100%;
@@ -1145,9 +1145,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   LINK
-========================================================= */
+
+
+
 
 .service-related-showcase-card__link {
     position: relative;
@@ -1195,9 +1195,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   TABLET
-========================================================= */
+
+
+
 
 @media (max-width: 900px) {
     .service-related-showcase__grid {
@@ -1223,9 +1223,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+
+
+
 
 @media (max-width: 640px) {
     .service-related-showcase {
@@ -1276,9 +1276,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
+
+
+
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -1298,9 +1298,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   SERVICE SPLIT SHOWCASE
-========================================================= */
+
+
+
 
 .service-split-showcase {
     position: relative;
@@ -1320,9 +1320,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   2 × 2 GRID
-========================================================= */
+
+
+
 
 .service-split-showcase__grid {
     display: grid;
@@ -1359,9 +1359,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   IMAGES
-========================================================= */
+
+
+
 
 .service-split-showcase__media {
     position: relative;
@@ -1401,9 +1401,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   CONTENT PANELS
-========================================================= */
+
+
+
 
 .service-split-showcase__content {
     display: flex;
@@ -1460,9 +1460,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   FOCUS LIST
-========================================================= */
+
+
+
 
 .service-split-showcase__focus-list {
     display: grid;
@@ -1509,9 +1509,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   BUTTON
-========================================================= */
+
+
+
 
 .service-split-showcase__button {
     display: inline-flex;
@@ -1568,9 +1568,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   TABLET
-========================================================= */
+
+
+
 
 @media (max-width: 900px) {
     body[data-page="service-detail"] .service-split-showcase [data-aos="fade-left"],
@@ -1616,9 +1616,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+
+
+
 
 @media (max-width: 640px) {
     .service-split-showcase {
@@ -1657,9 +1657,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
+
+
+
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -1677,9 +1677,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   SERVICE SPLIT — FIXED IMAGE SIZE
-========================================================= */
+
+
+
 
 .service-split-showcase__media {
     position: relative;
@@ -1788,9 +1788,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
     }
 }
 
-/* =========================================================
-   SERVICE VISUAL PANELS
-========================================================= */
+
+
+
 
 .service-visual-panels {
     position: relative;
@@ -1810,17 +1810,17 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 
     width: 100%;
 
-    /*
-     * Фиксированная высота всей секции.
-     * Размер исходных изображений её не меняет.
-     */
+
+
+
+
     height: 560px;
 }
 
 
-/* =========================================================
-   PANEL
-========================================================= */
+
+
+
 
 .service-visual-panel {
     position: relative;
@@ -1852,9 +1852,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   FIXED IMAGE
-========================================================= */
+
+
+
 
 .service-visual-panel__image {
     position: absolute;
@@ -1878,10 +1878,10 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/*
- * Можно индивидуально менять позицию фотографий,
- * если лицо или объект обрезается.
- */
+
+
+
+
 
 .service-visual-panel:nth-child(1) .service-visual-panel__image {
     object-position: center;
@@ -1896,9 +1896,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   OVERLAY
-========================================================= */
+
+
+
 
 .service-visual-panel__overlay {
     position: absolute;
@@ -1934,9 +1934,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   CONTENT
-========================================================= */
+
+
+
 
 .service-visual-panel__content {
     position: relative;
@@ -2014,9 +2014,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   ACTION
-========================================================= */
+
+
+
 
 .service-visual-panel__action {
     display: inline-flex;
@@ -2054,9 +2054,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   HOVER
-========================================================= */
+
+
+
 
 .service-visual-panel__link:hover .service-visual-panel__image {
     transform: scale(1.075);
@@ -2097,9 +2097,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   TABLET
-========================================================= */
+
+
+
 
 @media (max-width: 980px) {
     .service-visual-panels__grid {
@@ -2126,9 +2126,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+
+
+
 
 @media (max-width: 720px) {
     .service-visual-panels__grid {
@@ -2171,9 +2171,9 @@ body[data-page="service-detail"] .service-related-carousel>.v-container--wide {
 }
 
 
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
+
+
+
 
 @media (prefers-reduced-motion: reduce) {
 

@@ -1,19 +1,19 @@
-/* =========================================================
-   VERDEON — SERVICE PAGE MOBILE CONTAINMENT FIX
 
-   Load this file AFTER responsive.css on every service page,
-   or paste this entire file at the END of responsive.css.
 
-   This block fixes:
-   - horizontal page overflow;
-   - hero content leaving the container;
-   - sticky service-page header;
-   - mobile menu width/position;
-   - cards and grids exceeding the viewport;
-   - horizontal AOS transforms on small screens.
-========================================================= */
 
-/* ---------- GLOBAL TABLET / MOBILE H2 CENTERING ---------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 1023px) {
     h2 {
@@ -42,7 +42,7 @@
     }
 }
 
-/* ---------- GLOBAL WIDTH MODEL FOR SERVICE PAGES ---------- */
+
 
 html {
     max-inline-size: 100%;
@@ -82,7 +82,7 @@ body[data-page="service-detail"] main>section {
     max-inline-size: 100%;
 }
 
-/* Never allow media to create page overflow. */
+
 
 body[data-page="service-detail"] img,
 body[data-page="service-detail"] svg,
@@ -91,7 +91,7 @@ body[data-page="service-detail"] iframe {
     max-inline-size: 100%;
 }
 
-/* Long service names must wrap instead of widening a grid/flex item. */
+
 
 body[data-page="service-detail"] h1,
 body[data-page="service-detail"] h2,
@@ -104,7 +104,7 @@ body[data-page="service-detail"] span {
     overflow-wrap: anywhere;
 }
 
-/* ---------- ONE CONSISTENT CONTAINER MODEL ---------- */
+
 
 body[data-page="service-detail"] .v-container {
     inline-size: 100% !important;
@@ -120,17 +120,17 @@ body[data-page="service-detail"] .v-container--wide {
     padding-inline: var(--page-gutter, 1.25rem) !important;
 }
 
-/*
- * This element already has v-container--wide in HTML.
- * Do not give it a second calculated width.
- */
+
+
+
+
 
 body[data-page="service-detail"] .service-split-showcase__shell {
     inline-size: 100% !important;
     max-inline-size: var(--container-wide, 1440px) !important;
 }
 
-/* ---------- STICKY HEADER ---------- */
+
 
 body[data-page="service-detail"]>[data-site-header] {
     position: sticky !important;
@@ -179,12 +179,12 @@ body[data-page="service-detail"] main {
     padding-block-start: 0 !important;
 }
 
-/* ---------- MOBILE MENU ---------- */
 
-/*
- * left + right = 0 with width:auto is safer than width:100%
- * inside a generated/sticky header mount.
- */
+
+
+
+
+
 
 body[data-page="service-detail"] [data-mobile-menu],
 body[data-page="service-detail"] .mobile-menu {
@@ -234,7 +234,7 @@ body[data-page="service-detail"] .mobile-menu__section {
     min-inline-size: 0;
 }
 
-/* ---------- SERVICE HERO ---------- */
+
 
 body[data-page="service-detail"] .service-hero {
     position: relative;
@@ -320,7 +320,7 @@ body[data-page="service-detail"] .service-hero .breadcrumb>* {
     overflow-wrap: anywhere;
 }
 
-/* ---------- ALL SERVICE-PAGE GRIDS/CARDS ---------- */
+
 
 body[data-page="service-detail"] :is(.service-detail-overview,
     .service-detail-scope,
@@ -360,16 +360,16 @@ body[data-page="service-detail"] .service-related-carousel__swiper {
     overflow-x: clip;
 }
 
-/*
- * Do not constrain the Swiper wrapper itself.
- * Swiper needs a wide transformed track.
- */
+
+
+
+
 
 body[data-page="service-detail"] .service-related-carousel__swiper {
     min-inline-size: 0;
 }
 
-/* ---------- TABLET / MINI TABLET ---------- */
+
 
 @media (max-width: 960px) {
     body[data-page="service-detail"] {
@@ -451,10 +451,10 @@ body[data-page="service-detail"] .service-related-carousel__swiper {
         position: static !important;
     }
 
-    /*
-     * Horizontal AOS movement creates scrollable overflow on narrow screens.
-     * Convert it to vertical movement only.
-     */
+
+
+
+
 
     body[data-page="service-detail"] [data-aos="fade-left"],
     body[data-page="service-detail"] [data-aos="fade-right"] {
@@ -467,7 +467,7 @@ body[data-page="service-detail"] .service-related-carousel__swiper {
     }
 }
 
-/* ---------- MOBILE ---------- */
+
 
 @media (max-width: 600px) {
     body[data-page="service-detail"] {
