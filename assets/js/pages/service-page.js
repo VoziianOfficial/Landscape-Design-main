@@ -30,6 +30,11 @@ export function initServicePage(config) {
     return item.slug === slug;
   });
 
+  renderServiceRelatedShowcase(
+    config.services,
+    service
+  );
+
   if (!service) {
     console.warn(
       `Verdeon: service "${slug}" was not found.`
@@ -54,6 +59,7 @@ export function initServicePage(config) {
     service
   );
 }
+
 
 
 /* =========================================================
@@ -628,6 +634,353 @@ function getServiceIconMarkup(slug) {
         <path d="M24 28c-9 0-14-5-14-13 9 0 14 5 14 13Z"/>
         <path d="M24 22c9 0 14-5 14-13-9 0-14 5-14 13Z"/>
         <path d="M14 42h20"/>
+      </svg>
+    `,
+
+    "patio-walkway-design": `
+      <svg
+        viewBox="0 0 48 48"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M8 42 19 8h10l11 34"/>
+        <path d="M13 30h22"/>
+        <path d="M16 20h16"/>
+        <path d="M10 38h28"/>
+      </svg>
+    `,
+
+    "outdoor-lighting": `
+      <svg
+        viewBox="0 0 48 48"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M16 20a8 8 0 1 1 16 0c0 5-4 7-5 11h-6c-1-4-5-6-5-11Z"/>
+        <path d="M21 36h6"/>
+        <path d="M22 41h4"/>
+        <path d="M24 4V1"/>
+        <path d="M7 21H3"/>
+        <path d="M45 21h-4"/>
+      </svg>
+    `,
+
+    "3d-landscape-visualization": `
+      <svg
+        viewBox="0 0 48 48"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="m24 5 18 9-18 9-18-9 18-9Z"/>
+        <path d="m6 23 18 9 18-9"/>
+        <path d="m6 32 18 9 18-9"/>
+        <path d="M24 23v18"/>
+      </svg>
+    `
+  };
+
+  return icons[slug] || `
+    <svg
+      viewBox="0 0 48 48"
+      fill="none"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <circle cx="24" cy="24" r="17"/>
+      <path d="M24 15v18"/>
+      <path d="M15 24h18"/>
+    </svg>
+  `;
+}
+
+/* =========================================================
+   RELATED SERVICE SHOWCASE
+========================================================= */
+
+function renderServiceRelatedShowcase(
+  services,
+  currentService
+) {
+  const section = document.querySelector(
+    "[data-service-related-showcase]"
+  );
+
+  if (!section) {
+    return;
+  }
+
+  const container = section.querySelector(
+    "[data-service-related-showcase-list]"
+  );
+
+  if (!container) {
+    section.hidden = true;
+    return;
+  }
+
+  const relatedServices = getShowcaseServices(
+    services,
+    currentService,
+    3
+  );
+
+  if (relatedServices.length === 0) {
+    section.hidden = true;
+    return;
+  }
+
+  container.replaceChildren(
+    ...relatedServices.map((service, index) => {
+      return createRelatedShowcaseCard(
+        service,
+        index
+      );
+    })
+  );
+
+  section.hidden = false;
+
+  requestAnimationFrame(() => {
+    window.AOS?.refreshHard?.();
+  });
+}
+
+
+/* =========================================================
+   RELATED SERVICE SELECTION
+========================================================= */
+
+function getShowcaseServices(
+  services,
+  currentService,
+  limit
+) {
+  const selected = [];
+  const selectedSlugs = new Set();
+
+  const addService = (service) => {
+    if (!service?.slug) {
+      return;
+    }
+
+    if (service.slug === currentService.slug) {
+      return;
+    }
+
+    if (selectedSlugs.has(service.slug)) {
+      return;
+    }
+
+    selected.push(service);
+    selectedSlugs.add(service.slug);
+  };
+
+  const relatedSlugs = Array.isArray(
+    currentService.related
+  )
+    ? currentService.related
+    : [];
+
+  /*
+   * Сначала берём три направления из related.
+   */
+  relatedSlugs.forEach((slug) => {
+    const relatedService = services.find(
+      (service) => service.slug === slug
+    );
+
+    addService(relatedService);
+  });
+
+  /*
+   * Подстраховка, если related содержит
+   * меньше трёх существующих сервисов.
+   */
+  services.forEach((service) => {
+    if (selected.length < limit) {
+      addService(service);
+    }
+  });
+
+  return selected.slice(0, limit);
+}
+
+
+/* =========================================================
+   CREATE CARD
+========================================================= */
+
+function createRelatedShowcaseCard(
+  service,
+  index
+) {
+  const article = document.createElement(
+    "article"
+  );
+
+  article.className =
+    "service-related-showcase-card";
+
+  if (index === 1) {
+    article.classList.add(
+      "service-related-showcase-card--featured"
+    );
+  }
+
+  article.setAttribute(
+    "data-aos",
+    "fade-up"
+  );
+
+  article.setAttribute(
+    "data-aos-delay",
+    String(index * 90)
+  );
+
+  const icon = document.createElement("span");
+
+  icon.className =
+    "service-related-showcase-card__icon";
+
+  icon.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  icon.innerHTML = getRelatedShowcaseIcon(
+    service.slug
+  );
+
+  const title = document.createElement("h3");
+
+  title.textContent =
+    service.title;
+
+  const description = document.createElement(
+    "p"
+  );
+
+  description.textContent =
+    service.summary ||
+    "Explore this connected landscape planning direction.";
+
+  const link = document.createElement("a");
+
+  link.className =
+    "service-related-showcase-card__link";
+
+  link.href =
+    service.url || "#";
+
+  link.textContent =
+    "View Service";
+
+  link.setAttribute(
+    "aria-label",
+    `Explore ${service.title}`
+  );
+
+  article.append(
+    icon,
+    title,
+    description,
+    link
+  );
+
+  return article;
+}
+
+
+/* =========================================================
+   ICONS
+========================================================= */
+
+function getRelatedShowcaseIcon(slug) {
+  const icons = {
+    "residential-landscape-design": `
+      <svg
+        viewBox="0 0 48 48"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M6 23 24 8l18 15"/>
+        <path d="M10 21v20h28V21"/>
+        <path d="M19 41V29h10v12"/>
+        <path d="M7 41h34"/>
+      </svg>
+    `,
+
+    "commercial-landscape-design": `
+      <svg
+        viewBox="0 0 48 48"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M7 43V9h21v34"/>
+        <path d="M28 18h13v25"/>
+        <path d="M13 15h4"/>
+        <path d="M13 22h4"/>
+        <path d="M13 29h4"/>
+        <path d="M33 24h3"/>
+        <path d="M33 31h3"/>
+        <path d="M4 43h40"/>
+      </svg>
+    `,
+
+    "front-yard-design": `
+      <svg
+        viewBox="0 0 48 48"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M7 42c6-13 15-22 29-29"/>
+        <path d="M15 42c5-9 11-15 22-22"/>
+        <path d="M31 8c7 0 11 4 11 11-7 0-11-4-11-11Z"/>
+        <path d="M8 27c6 0 10 4 10 10-6 0-10-4-10-10Z"/>
+      </svg>
+    `,
+
+    "backyard-design": `
+      <svg
+        viewBox="0 0 48 48"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M8 42V22h32v20"/>
+        <path d="M5 22h38"/>
+        <path d="M12 22V11h24v11"/>
+        <path d="M17 42V30h14v12"/>
+        <path d="M4 42h40"/>
+      </svg>
+    `,
+
+    "garden-planting-plans": `
+      <svg
+        viewBox="0 0 48 48"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M24 42V19"/>
+        <path d="M24 29c-9 0-14-5-14-14 9 0 14 5 14 14Z"/>
+        <path d="M24 23c9 0 14-5 14-14-9 0-14 5-14 14Z"/>
+        <path d="M15 42h18"/>
       </svg>
     `,
 
