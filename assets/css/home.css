@@ -3,8 +3,8 @@
     position: relative;
     background: var(--color-hero);
     color: var(--color-light-text);
-    display: flex;
-    align-items: flex-end;
+    display: grid;
+    align-items: center;
     overflow: hidden
 }
 
@@ -37,11 +37,11 @@
 .home-hero__content {
     position: relative;
     z-index: 2;
-    padding: calc(var(--header-height) + 3.25rem) 0 clamp(3rem, 5vw, 4.5rem);
+    padding: calc(var(--header-height) + 1rem) 0 clamp(2rem, 3.5vw, 3rem);
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(320px, 390px);
     gap: 3rem;
-    align-items: end
+    align-items: center
 }
 
 .home-hero__copy {
@@ -59,7 +59,7 @@
 }
 
 .home-hero__note {
-    align-self: end;
+    align-self: center;
     position: relative;
     isolation: isolate;
     display: grid;
@@ -998,7 +998,7 @@
     }
 
     .home-hero__content {
-        padding-top: calc(var(--header-height) + 3.25rem)
+        padding: calc(var(--header-height) + 1rem) 0 2rem
     }
 
     .home-hero h1 {
@@ -1923,5 +1923,87 @@
     .home-faq--editorial .home-faq__panel p {
         font-size: 0.91rem;
         line-height: 1.65;
+    }
+}
+/* =========================================================
+   HOME FAQ — COLLAPSE BEHAVIOR
+========================================================= */
+
+.home-faq--editorial .home-faq__panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition:
+        grid-template-rows 380ms ease,
+        opacity 240ms ease,
+        visibility 0s linear 380ms;
+}
+
+.home-faq--editorial .home-faq__panel>div {
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* Открытая карточка */
+
+.home-faq--editorial .home-faq__item.is-open .home-faq__panel,
+.home-faq--editorial .home-faq__item:has(.home-faq__button[aria-expanded="true"]) .home-faq__panel {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    visibility: visible;
+    transition:
+        grid-template-rows 380ms ease,
+        opacity 280ms ease,
+        visibility 0s;
+}
+
+/* Закрытая карточка — без внутренних отступов */
+
+.home-faq--editorial .home-faq__item:not(.is-open) .home-faq__panel>div {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* Открытая карточка — возвращаем отступы */
+
+.home-faq--editorial .home-faq__item.is-open .home-faq__panel>div,
+.home-faq--editorial .home-faq__item:has(.home-faq__button[aria-expanded="true"]) .home-faq__panel>div {
+    padding:
+        0 clamp(1.35rem, 2.5vw, 2rem) 1.7rem clamp(4.2rem, 6vw, 5.35rem);
+}
+
+/* Плюс и минус рисуем через CSS */
+
+.home-faq--editorial .v-accordion__icon {
+    font-size: 0;
+}
+
+.home-faq--editorial .v-accordion__icon::before {
+    content: "+";
+    font-size: 1.45rem;
+    line-height: 1;
+}
+
+.home-faq--editorial .home-faq__button[aria-expanded="true"] .v-accordion__icon::before {
+    content: "−";
+}
+
+@media (max-width: 600px) {
+
+    .home-faq--editorial .home-faq__item.is-open .home-faq__panel>div,
+    .home-faq--editorial .home-faq__item:has(.home-faq__button[aria-expanded="true"]) .home-faq__panel>div {
+        padding: 0 1rem 1.4rem 3.45rem;
+    }
+
+    .home-faq--editorial .v-accordion__icon::before {
+        font-size: 1.25rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-faq--editorial .home-faq__panel {
+        transition: none;
     }
 }

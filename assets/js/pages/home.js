@@ -3,7 +3,115 @@ import { initServiceExplorer } from "../components/service-explorer.js";
 export function initHome(config) {
   initServiceExplorer(config);
   initPlanningSteps();
+  initHomeFaqAccordion();
   renderPlanningStepIcons();
+}
+
+function initHomeFaqAccordion() {
+  const accordion = document.querySelector(
+    "[data-home-faq-accordion]"
+  );
+
+  if (!accordion) {
+    return;
+  }
+
+  if (accordion.dataset.initialized === "true") {
+    return;
+  }
+
+  accordion.dataset.initialized = "true";
+
+  const buttons = Array.from(
+    accordion.querySelectorAll(".home-faq__button")
+  );
+
+  const setItemState = (button, isOpen) => {
+    const item = button.closest(".home-faq__item");
+
+    const panelId = button.getAttribute("aria-controls");
+
+    const panel = panelId
+      ? document.getElementById(panelId)
+      : null;
+
+    if (!item || !panel) {
+      return;
+    }
+
+    button.setAttribute(
+      "aria-expanded",
+      String(isOpen)
+    );
+
+    item.classList.toggle("is-open", isOpen);
+
+    panel.setAttribute(
+      "aria-hidden",
+      String(!isOpen)
+    );
+
+    const icon = button.querySelector(
+      ".v-accordion__icon"
+    );
+
+    if (icon) {
+      icon.textContent = isOpen ? "−" : "+";
+    }
+  };
+
+  buttons.forEach((button) => {
+    const isInitiallyOpen =
+      button.getAttribute("aria-expanded") === "true";
+
+    setItemState(button, isInitiallyOpen);
+
+    button.addEventListener("click", () => {
+      const wasOpen =
+        button.getAttribute("aria-expanded") === "true";
+
+      // Закрываем остальные карточки.
+      buttons.forEach((otherButton) => {
+        if (otherButton !== button) {
+          setItemState(otherButton, false);
+        }
+      });
+
+      // Текущую открываем или закрываем.
+      setItemState(button, !wasOpen);
+    });
+
+    button.addEventListener("keydown", (event) => {
+      const currentIndex = buttons.indexOf(button);
+
+      let targetIndex = null;
+
+      if (event.key === "ArrowDown") {
+        targetIndex = (currentIndex + 1) % buttons.length;
+      }
+
+      if (event.key === "ArrowUp") {
+        targetIndex =
+          (currentIndex - 1 + buttons.length) %
+          buttons.length;
+      }
+
+      if (event.key === "Home") {
+        targetIndex = 0;
+      }
+
+      if (event.key === "End") {
+        targetIndex = buttons.length - 1;
+      }
+
+      if (targetIndex === null) {
+        return;
+      }
+
+      event.preventDefault();
+      buttons[targetIndex].focus();
+    });
+  });
 }
 
 function initPlanningSteps() {
